@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IAB — Interpreting Agent Behavior | Workshop Proposal</title>
+  <link rel="icon" type="image/svg+xml" href="img/iab-icon.svg">
+  <link rel="icon" type="image/png" href="img/iab-icon.png">
+  <link rel="apple-touch-icon" href="img/iab-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
-      --bg-alt: #f8f9fb;
+      --bg-alt: #e7ebf3;
       --text: #1c1c28;
       --text-secondary: #5a6072;
       --accent: #e0e7ff;
@@ -19,7 +22,7 @@
       --border: #e2e5ea;
       --card: #ffffff;
       --radius: 10px;
-      --max-w: 1000px;
+      --max-w: 1180px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -44,19 +47,33 @@
       font-family: 'Inter', sans-serif;
     }
     .nav .container { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-weight: 800; font-size: 0.95rem; color: var(--text); }
+    .nav-logo { font-weight: 800; font-size: 0.95rem; color: var(--text); display: flex; align-items: center; gap: 0.45rem; }
+    .nav-logo .logo-mark { width: 30px; height: 30px; object-fit: contain; flex-shrink: 0; }
     .nav-logo span { background: var(--accent); padding: 2px 7px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; margin-left: 5px; }
     .nav-links { display: flex; gap: 1.6rem; }
     .nav-links a { color: var(--text-secondary); font-size: 0.84rem; font-weight: 500; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
 
-    /* HERO */
+    /* HERO — full-bleed photo */
     .hero {
-      padding: 4.5rem 0 3rem; text-align: center;
       position: relative; overflow: hidden;
-      background: #ffffff;
+      min-height: min(82vh, 660px);
+      display: flex; align-items: center;
+      text-align: center;
+      padding: 4rem 0;
+      background: #0d1428;
     }
-    .hero .container { position: relative; z-index: 1; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(13,20,40,0.55) 0%, rgba(13,20,40,0.42) 45%, rgba(13,20,40,0.72) 100%);
+    }
+    .hero .container { position: relative; z-index: 2; }
     .hero-status {
       display: inline-block;
       font-family: 'Inter', sans-serif;
@@ -73,22 +90,32 @@
     }
     .hero h1 {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 2.8rem;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.15;
       letter-spacing: -1px;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.9rem;
       white-space: nowrap;
+      color: #ffffff;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
     }
-    .hero .subtitle { font-style: italic; font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 0.6rem; }
+    .hero .subtitle { font-style: italic; font-size: clamp(1.05rem, 2vw, 1.3rem); color: rgba(255,255,255,0.92); margin-bottom: 0.7rem; max-width: 720px; margin-left: auto; margin-right: auto; text-shadow: 0 1px 14px rgba(0,0,0,0.4); }
     .hero .venue-line {
+      display: inline-block;
+      margin-top: 1.1rem;
       font-family: 'Inter', sans-serif;
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      font-weight: 500;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.95);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.28);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
-    .hero .venue-line strong { color: var(--text); }
-    .hero-banner { max-width: 680px; width: 100%; margin-top: 2rem; }
+    .hero .venue-line strong { color: #ffffff; font-weight: 800; }
     .highlights {
       display: flex; justify-content: center; gap: 2rem;
       margin-top: 2.5rem; padding-top: 2rem;
@@ -121,14 +148,21 @@
 
     /* ABOUT */
     .about-content { max-width: 100%; }
+    .about-content .uline {
+      font-weight: 600;
+      color: var(--text);
+      background-image: linear-gradient(transparent 62%, rgba(251,191,36,0.42) 62%);
+      padding: 0 1px;
+    }
 
     /* TOPICS */
-    .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+    .topics-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
     .topic-card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 1.4rem;
     }
-    .topic-card h3 { font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .topic-card h3 { font-family: 'Inter', sans-serif; font-size: 1.18rem; font-weight: 700; margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.6rem; }
+    .topic-card h3 svg { width: 34px; height: 34px; flex-shrink: 0; }
     .topic-card ul { list-style: none; padding: 0; margin: 0; }
     .topic-card li {
       font-size: 0.85rem; color: var(--text-secondary);
@@ -176,6 +210,22 @@
       border: none;
       color: var(--text-secondary);
     }
+    /* Organizing committee (cols-4): larger headshots */
+    .people-grid.cols-4 .person-card img,
+    .people-grid.cols-4 .person-card .initials {
+      width: 168px; height: 168px;
+    }
+    /* Speakers (cols-3): larger headshots */
+    .people-grid.cols-3 .person-card img,
+    .people-grid.cols-3 .person-card .initials {
+      width: 200px; height: 200px;
+    }
+    .person-card .initials.placeholder {
+      background: transparent;
+      border: 2px dashed #c2c8d4;
+      color: #aab0be;
+      font-size: 3rem; font-weight: 400;
+    }
     .person-card .name { font-weight: 700; font-size: 0.88rem; }
     .person-card .affil { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.1rem; }
     .person-card .focus { font-size: 0.75rem; color: var(--blue); margin-top: 0.3rem; font-weight: 500; }
@@ -188,7 +238,7 @@
     }
     .adv h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-secondary); }
     .adv p { font-size: 0.95rem; color: var(--text-secondary); margin: 0; line-height: 1.8; }
-    .adv a { color: #5b8db8; font-weight: 600; }
+    .adv a { color: var(--blue); font-weight: 600; }
 
     /* SCHEDULE */
     .schedule-list { max-width: 700px; }
@@ -283,12 +333,12 @@
 <!-- Nav -->
 <nav class="nav">
   <div class="container">
-    <div class="nav-logo">IAB <span>Workshop</span></div>
+    <div class="nav-logo"><img class="logo-mark" src="img/iab-icon.svg" alt="IAB logo">IAB <span>Workshop</span></div>
     <button class="nav-toggle" aria-label="Menu" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links">
-      <a href="#about">Motivation</a>
+      <a href="#about">About</a>
       <a href="#topics">Scope</a>
       <a href="#speakers">Speakers</a>
       <a href="#schedule">Schedule</a>
@@ -300,12 +350,12 @@
 
 <!-- Hero -->
 <header class="hero">
+  <img src="img/hero.png" alt="A Claude Code terminal session analyzing an AI agent's runtime trajectory" class="hero-bg">
   <div class="container">
     <div class="hero-status">&#9679; Proposal Stage</div>
     <h1>Interpreting Agent Behavior</h1>
     <div class="subtitle">Human-Centered Interpretation for Understanding Agents, Humans, and Interaction</div>
-    <div class="venue-line"><strong>NeurIPS 2026 Workshop</strong> &middot; December 11&ndash;13, 2026</div>
-    <img src="img/agents.png" alt="Agent behaviors illustration" class="hero-banner">
+    <div class="venue-line"><strong>NeurIPS 2026 Workshop</strong> &middot; Sydney, Australia &middot; December 11&ndash;13, 2026</div>
   </div>
 </header>
 
@@ -314,17 +364,16 @@
 <!-- About -->
 <section id="about">
   <div class="container">
-    <div class="section-label">Overview</div>
-    <h2>Motivation</h2>
+    <h2>About</h2>
     <div class="about-content">
       <p>
-        Widely deployed commercial agents such as Claude and Codex have exhibited complex behaviors, including planning, reasoning, tool use, and failure recovery. These behaviors are captured in vast amounts of behavioral data such as execution logs, prompting histories, and interaction traces. However, existing approaches to understanding agent behaviors remain largely outcome-focused: benchmarks can tell us <em>whether</em> an agent succeeds or fails, but they cannot tell us <em>why</em>. For example, a fail rate does not reveal that an agent fails because it cannot select effective tools. Understanding the &ldquo;why&rdquo; is what humans actually need: developers need it to debug agents, researchers need it to identify behavioral patterns, and policymakers need it to ensure agents align with human values and expectations.
+        Commercial autonomous agents such as Claude and Codex now run for hours or even days to complete tasks, and along the way they show complex behavior: they plan, reason, use tools, recover from errors, coordinate with subagents, and communicate with users. We use the word <em>behavior</em>, as in the study of human behavior, for the full range of what an agent does during runtime. This behavior spans <span class="uline">three levels: what agents do and how they do it, what people do in response, and how the two work together</span> through instructions and corrections. All three generate vast behavioral data such as execution logs and interaction traces. Yet existing approaches read this data largely for outcomes: benchmarks tell us <em>whether</em> an agent succeeds or fails, <span class="uline">but not <em>what</em> it did or <em>how</em> it did it</span>.
       </p>
       <p>
-        <strong>In this workshop, we are interested in a fundamental question: how can we help humans understand agent behaviors?</strong> Humans cannot read thousands of log entries. They need patterns, summaries, and explanations &mdash; in other words, <em>interpretation</em>. Building human-understandable levels of interpretation is essential for evaluating agents and designing agents aligned with human expectations that benefit human life.
+        Understanding <em>what</em> and <em>how</em> is what people actually need. It lets agent developers and model trainers debug failures, compare architectures, and filter training data; it lets agent users and deployment engineers watch production agents to understand safety, cost, and reliability risks. But the field still <span class="uline">lacks the vocabulary, methods, and tools to describe and analyze agent behavior at scale</span>. Humans cannot read through thousands of log entries; they need patterns, summaries, and explanations, in other words <span class="uline"><em>interpretation</em></span>, and we do not yet know how to scale it.
       </p>
       <p>
-        IAB aims to establish a new community that brings together researchers from interpretability, evaluation, alignment, computational social science, behavioral science, collective intelligence, responsible AI, governance, and HCI. Researchers and practitioners are actively adopting and developing empirical methods for understanding agent behaviors, including grounded theory, qualitative analysis, error analysis, corpus analysis, trace analysis, and red-teaming. IAB provides a venue to consolidate these efforts into shared vocabulary, open datasets, and reproducible methodology.
+        <strong>IAB works toward an interpretive science of agent behavior.</strong> It treats behavior across these three levels as the object of study and proceeds in two steps: first gathering the community to identify the problem space and emerging challenges, then bringing the broad set of methods that social scientists have developed &mdash; grounded theory, qualitative analysis, error analysis, corpus analysis, trace analysis, and red-teaming &mdash; to read meaning from this data, discover categories from it, and count them. <span class="uline">IAB bridges two communities: social science and HCI contribute the interpretation methods, while AI contributes the problem space</span> of evaluation, governance, alignment, and responsible AI.
       </p>
     </div>
   </div>
@@ -333,38 +382,36 @@
 <!-- Topics -->
 <section id="topics" class="alt">
   <div class="container">
-    <div class="section-label">Scope</div>
     <h2>Scope</h2>
-    <p class="lead">We plan to investigate agent behavior from three complementary perspectives.</p>
+    <p class="lead">IAB treats agent behavior across three levels as the object of study, and asks three questions.</p>
     <div class="topics-grid">
       <div class="topic-card">
-        <h3>How do agents behave?</h3>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg><span style="color: var(--blue);">Agents</span> &mdash; What do agents do, and how?</h3>
         <ul>
-          <li>How do agents plan, reason, and use tools?</li>
-          <li>How do agents handle ambiguity and uncertainty?</li>
-          <li>How and why do agents fail or recover?</li>
+          <li>Which behaviors recur at runtime, and which are new: planning, reasoning, calling tools, handling ambiguity and uncertainty, failing, and recovering?</li>
           <li>What emergent behaviors appear in single- and multi-agent systems?</li>
           <li>How does the choice of model or architecture shape behavior?</li>
+          <li>What types does this behavior fall into, and is it similar enough to human behavior that we can borrow methods from studying it?</li>
+          <li>How do we capture and reuse successful patterns?</li>
         </ul>
       </div>
       <div class="topic-card">
-        <h3>How do humans respond?</h3>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span style="color: #b45309;">Humans</span> &mdash; What do people do in response, and how?</h3>
         <ul>
-          <li>How do users prompt and adapt while working with agents?</li>
-          <li>How do users verify agent outputs?</li>
-          <li>When does over-reliance emerge?</li>
-          <li>How do users build mental models of agent capabilities?</li>
-          <li>How do users monitor ongoing agent execution?</li>
+          <li>What do people do when they work with agents: writing prompts, verifying outputs, over-relying, forming mental models, and monitoring ongoing execution?</li>
+          <li>What strategies do they use to adjust agent behavior mid-execution?</li>
+          <li>What types does this behavior fall into?</li>
+          <li>Is it similar to how they treat other people?</li>
         </ul>
       </div>
       <div class="topic-card">
-        <h3>How do they interact?</h3>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="12.8" y="6.2" width="8" height="6.6" rx="2"/><path d="M16.8 6.2V4.1"/><circle cx="16.8" cy="3.2" r="0.9"/><path d="M15.2 9.3v0.9M18.4 9.3v0.9"/><path d="M11.8 20.5v-1.2a4.9 4.9 0 0 1 9.8 0v1.2"/><circle cx="8" cy="7.6" r="3.1" fill="#ffffff"/><path d="M2.4 20.5v-1a5.6 5.6 0 0 1 11.2 0v1" fill="#ffffff"/></svg><span style="color: #0f766e;">Interaction</span> &mdash; What happens when humans and agents interact, and how?</h3>
         <ul>
-          <li>How can humans and agents collaborate effectively?</li>
+          <li>Which behaviors recur, which are new, and what role do people play?</li>
           <li>How do users communicate intent and goals?</li>
           <li>How are misunderstandings and breakdowns repaired?</li>
-          <li>What patterns emerge from interaction traces and logs?</li>
-          <li>What empirical methods best support this analysis?</li>
+          <li>What patterns emerge from interaction traces and logs, and how do they differ across tasks?</li>
+          <li>Are these interactions similar to how people work with other people?</li>
         </ul>
       </div>
     </div>
@@ -374,10 +421,9 @@
 <!-- Speakers -->
 <section id="speakers">
   <div class="container">
-    <div class="section-label">Invited Talks</div>
     <h2>Speakers</h2>
     <p class="lead">We thank the current speakers who are interested in giving a talk.</p>
-    <div class="people-grid cols-5">
+    <div class="people-grid cols-3">
       <div class="person-card">
         <img src="https://people.csail.mit.edu/asolar/images/asolar_head.jpg" alt="Armando Solar-Lezama">
         <div class="name"><a href="https://people.csail.mit.edu/asolar/">Armando Solar-Lezama</a></div>
@@ -408,6 +454,12 @@
         <div class="affil">Microsoft Research</div>
         <div class="focus">RL &amp; Language Agents · <span style="color: #16a34a; font-weight: 600;">Confirmed</span></div>
       </div>
+      <div class="person-card">
+        <div class="initials placeholder">?</div>
+        <div class="name" style="color: var(--text-secondary);">To Be Invited</div>
+        <div class="affil">&nbsp;</div>
+        <div class="focus" style="color: var(--text-secondary);">More speakers coming soon</div>
+      </div>
     </div>
   </div>
 </section>
@@ -415,7 +467,6 @@
 <!-- Schedule -->
 <section id="schedule" class="alt">
   <div class="container">
-    <div class="section-label">Program</div>
     <h2>Schedule</h2>
     <p class="lead">Full-day workshop with keynotes, paper presentations, posters, and a panel discussion.</p>
     <div class="schedule-list">
@@ -438,7 +489,6 @@
 <!-- CFP -->
 <section id="cfp">
   <div class="container">
-    <div class="section-label">Submissions</div>
     <h2>Call for Papers</h2>
     <p class="lead">We solicit two types of non-archival submissions and welcome empirical studies, datasets, methods papers, tools, and negative results on understanding agent behavior.</p>
     <p class="lead">We particularly welcome contributions across four categories:</p>
@@ -475,9 +525,8 @@
 <!-- Organizers -->
 <section id="organizers" class="alt">
   <div class="container">
-    <div class="section-label">Committee</div>
     <h2>Organizing Committee</h2>
-    <div class="people-grid cols-3">
+    <div class="people-grid cols-4">
       <div class="person-card">
         <img src="https://gaojie058.github.io/assets/images/photos/portrait.jpg" alt="Jie (Sophia) Gao">
         <div class="name"><a href="https://gaojie058.github.io/">Jie (Sophia) Gao</a></div>
@@ -503,7 +552,7 @@
         <div class="focus">Reliable Language AI</div>
       </div>
       <div class="person-card">
-        <img src="https://zhuoranlu.github.io/images/lu800.jpg" alt="Zhuoran Lu">
+        <img src="https://zhuoranlu.github.io/images/headshot_1.png" alt="Zhuoran Lu">
         <div class="name"><a href="https://zhuoranlu.github.io/">Zhuoran Lu</a></div>
         <div class="affil">University of Hong Kong</div>
         <div class="focus">Human-AI Decision Making</div>
@@ -540,7 +589,22 @@
         <a href="https://wyshi.github.io/">Weiyan Shi</a> (Northeastern) &middot;
         <a href="https://scholar.google.com/citations?user=n41KN9AAAAAJ&hl=en">Wei Lu</a> (Nanyang Technological University, Singapore) &middot;
         <a href="https://www.linkedin.com/in/nathanson/">Samuel Nathanson</a> (xAI) &middot;
-        Fan Bai (Bloomberg AI)
+        <a href="https://bflashcp3f.github.io/">Fan Bai</a> (Bloomberg AI)
+      </p>
+    </div>
+
+    <div class="adv">
+      <h3>Program Committee</h3>
+      <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 0.5rem;">We thank our program committee members from the NLP, HCI, and ML systems communities.</p>
+      <p>
+        Heyuan Huang (JHU) &middot;
+        Arman Hatami (JHU) &middot;
+        Yadi Cao (UC San Diego) &middot;
+        Boyang Li (Kean University) &middot;
+        Alyssa Columbus (JHU) &middot;
+        Han Jiang (JHU) &middot;
+        Yifan Zhang (National University of Singapore) &middot;
+        Huiqi Zou (Northeastern University)
       </p>
     </div>
   </div>
@@ -549,7 +613,6 @@
 <!-- Sponsors -->
 <section id="sponsors">
   <div class="container">
-    <div class="section-label">Support</div>
     <h2>Sponsors</h2>
     <p style="color: var(--text-secondary); font-size: 0.95rem; font-style: italic;">To be announced</p>
   </div>
