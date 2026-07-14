@@ -108,8 +108,10 @@
       color: rgba(255,255,255,0.95);
       font-weight: 600;
       letter-spacing: 0.01em;
-      padding: 0.55rem 1.4rem;
-      border-radius: 50px;
+      padding: 0.7rem 1.6rem;
+      border-radius: 18px;
+      text-align: center;
+      line-height: 1.5;
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.28);
       backdrop-filter: blur(8px);
@@ -147,6 +149,53 @@
     section p { margin-bottom: 0.85rem; }
 
     /* ABOUT */
+    .about-hook {
+      position: relative;
+      height: 6em;
+      margin: 0.6rem 0 2.4rem;
+      display: flex;
+      align-items: center;
+    }
+    .about-hook .line {
+      position: absolute;
+      left: 0; right: 0;
+      margin: 0;
+      opacity: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1.25rem, 3.2vw, 1.9rem);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.4px;
+      color: var(--text);
+      animation: hookCycle 32s infinite;
+    }
+    .about-hook .line em { color: var(--blue); font-style: normal; }
+    .about-hook .line:nth-child(1) { animation-delay: 0s; }
+    .about-hook .line:nth-child(2) { animation-delay: 4s; }
+    .about-hook .line:nth-child(3) { animation-delay: 8s; }
+    .about-hook .line:nth-child(4) { animation-delay: 12s; }
+    .about-hook .line:nth-child(5) { animation-delay: 16s; }
+    .about-hook .line:nth-child(6) { animation-delay: 20s; }
+    .about-hook .line:nth-child(7) { animation-delay: 24s; }
+    .about-hook .line:nth-child(8) { animation-delay: 28s; }
+    @keyframes hookCycle {
+      0%    { opacity: 0; transform: translateY(10px); }
+      1.6%  { opacity: 1; transform: translateY(0); }
+      9.5%  { opacity: 1; transform: translateY(0); }
+      11%   { opacity: 0; transform: translateY(-10px); }
+      100%  { opacity: 0; transform: translateY(-10px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .about-hook { height: auto; display: block; }
+      .about-hook .line {
+        position: static;
+        opacity: 1;
+        animation: none;
+        transform: none;
+        margin-bottom: 0.6rem;
+        font-size: 1.15rem;
+      }
+    }
     .about-content { max-width: 100%; }
     .about-content .uline {
       font-weight: 600;
@@ -380,7 +429,7 @@
     <div style="font-family: 'Inter', sans-serif; font-size: clamp(0.85rem, 1.6vw, 1.05rem); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #fcd34d; margin-bottom: 0.6rem; text-shadow: 0 1px 14px rgba(0,0,0,0.5);">The First Workshop on</div>
     <h1>Interpreting Agent Behavior</h1>
     <div class="subtitle">Human-Centered Interpretation for Understanding Agents, Humans, and Interaction</div>
-    <div class="venue-line"><strong>NeurIPS 2026 Workshop</strong> &middot; Sydney, Australia &middot; December 11&ndash;12, 2026</div>
+    <div class="venue-line"><strong><a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">NeurIPS 2026</a></strong> &middot; International Convention Centre, Sydney, Australia<br>December 11&ndash;12, 2026</div>
   </div>
 </header>
 
@@ -389,7 +438,16 @@
 <!-- About -->
 <section id="about">
   <div class="container">
-    <h2>About</h2>
+    <div class="about-hook">
+      <p class="line">Agents now run for hours, even days, to finish a single task.</p>
+      <p class="line">Along the way they <em>plan, reason, use tools, and recover from errors</em>.</p>
+      <p class="line">Every run leaves behind vast behavioral data: logs and interaction traces.</p>
+      <p class="line">Yet we still lack the vocabulary, methods, and tools to <em>make sense of it at scale</em>.</p>
+      <p class="line">Humans cannot read through thousands of log entries.</p>
+      <p class="line">They need patterns, summaries, and explanations, in other words <em>interpretation</em>.</p>
+      <p class="line">But we do not yet know how to <em>generate it at scale</em>.</p>
+      <p class="line">Our aim with <em>IAB</em> is to turn agent runtime data into human understanding of what agents do and how people work with them.</p>
+    </div>
     <div class="about-content">
       <p>
         Commercial autonomous agents such as Claude and Codex now run for hours or even days to complete tasks, and along the way they show complex behavior: they plan, reason, use tools, recover from errors, coordinate with subagents, and communicate with users. We use the word <em>behavior</em>, as in the study of human behavior, for the full range of what an agent does during runtime. This behavior spans <span class="uline">three levels: what agents do and how they do it, what people do in response, and how the two work together</span> through instructions and corrections. All three generate vast behavioral data such as execution logs and interaction traces. Yet existing approaches read this data largely for outcomes: benchmarks tell us <em>whether</em> an agent succeeds or fails, <span class="uline">but not <em>what</em> it did or <em>how</em> it did it</span>.
@@ -399,6 +457,9 @@
       </p>
       <p>
         <strong>IAB works toward an interpretive science of agent behavior.</strong> It treats behavior across these three levels as the object of study and proceeds in two steps: first gathering the community to identify the problem space and emerging challenges, then bringing the broad set of methods that social scientists have developed &mdash; grounded theory, qualitative analysis, error analysis, corpus analysis, trace analysis, and red-teaming &mdash; to read meaning from this data, discover categories from it, and count them. <span class="uline">IAB bridges two communities: social science and HCI contribute the interpretation methods, while AI contributes the problem space</span> of evaluation, governance, alignment, and responsible AI.
+      </p>
+      <p style="font-size: 1.55rem; font-weight: 700;">
+        Read our recent paper <a href="https://arxiv.org/abs/2605.13625" target="_blank" rel="noopener"><strong>"How to Interpret Agent Behavior"</strong></a>.
       </p>
     </div>
   </div>
