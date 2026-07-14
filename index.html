@@ -204,6 +204,23 @@
       padding: 0 1px;
     }
 
+    /* NEWS */
+    .news-list { list-style: none; padding: 0; margin: 1rem 0 0; }
+    .news-list li {
+      display: flex; gap: 1rem; align-items: baseline;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.98rem; color: var(--text);
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-list .date {
+      flex-shrink: 0; width: 6.5rem;
+      font-family: 'Inter', sans-serif; font-weight: 700;
+      font-size: 0.8rem; letter-spacing: 0.03em; text-transform: uppercase;
+      color: var(--blue);
+    }
+    .news-list em { font-style: italic; }
+
     /* TOPICS */
     .topics-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
     .topic-card {
@@ -413,6 +430,7 @@
     </button>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#news">News</a>
       <a href="#topics">Scope</a>
       <a href="#speakers">Speakers</a>
       <a href="#schedule">Schedule</a>
@@ -462,6 +480,17 @@
         Read our recent paper <a href="https://arxiv.org/abs/2605.13625" target="_blank" rel="noopener"><strong>"How to Interpret Agent Behavior"</strong></a>.
       </p>
     </div>
+  </div>
+</section>
+
+<!-- News -->
+<section id="news">
+  <div class="container">
+    <h2>News</h2>
+    <ul class="news-list">
+      <li><span class="date">Coming soon</span><span>Call for Papers will open shortly. Stay tuned.</span></li>
+      <li><span class="date">Jul 2026</span><span>🎉 IAB is accepted as a <a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener">NeurIPS 2026</a> workshop in Sydney.</span></li>
+    </ul>
   </div>
 </section>
 
