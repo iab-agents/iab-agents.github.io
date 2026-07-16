@@ -29,9 +29,10 @@ function Hero() {
           <strong>
             <a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener noreferrer">NeurIPS 2026</a>
           </strong>
-          {' · '}International Convention Centre, Sydney, Australia
-          <br />
-          December 11–12, 2026
+          <span className="venue-divider" aria-hidden="true">·</span>
+          <span className="venue-location venue-location--full">International Convention Centre, Sydney, Australia</span>
+          <span className="venue-location venue-location--short">ICC Sydney, Australia</span>
+          <span className="venue-date">December 11–12, 2026</span>
         </div>
       </div>
     </header>
