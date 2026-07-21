@@ -99,7 +99,6 @@ const people = [
     url: 'https://sites.google.com/site/nancyfchen/bio',
     affiliation: 'A*STAR Singapore',
     focus: 'Multimodal Generative AI',
-    note: 'Tentative speaker · In-person or online attendance TBD',
     avatar: { type: AVATAR_TYPE.LOCAL, src: nancyImage },
   },
   {
