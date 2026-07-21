@@ -454,13 +454,13 @@ section .lead {
 
 .person-inline img,
 .person-inline .initials {
-  width: 2.2em;
-  height: 2.2em;
-  margin-right: 0.36em;
+  width: 5em;
+  height: 5em;
+  margin-right: 0.5em;
   border-radius: 50%;
   background: var(--bg-alt);
   object-fit: cover;
-  vertical-align: -0.79em;
+  vertical-align: -2.19em;
 }
 
 .person-inline .initials {
