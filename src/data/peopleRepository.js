@@ -2,6 +2,7 @@ import beenImage from '../../img/been.png';
 import bowenImage from '../../img/bowen.jpg';
 import boyuanImage from '../../img/boyuan.jpg';
 import kaiserImage from '../../img/kaiser.jpg';
+import jentseImage from '../../img/jentse.jpg';
 import katherineImage from '../../img/katherine.jpg';
 import kunImage from '../../img/kun.jpg';
 import marcImage from '../../img/marc.jpg';
@@ -187,6 +188,15 @@ const people = [
       type: AVATAR_TYPE.REMOTE,
       src: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8dd39412-d3c3-40bb-9209-be3a78a93ae1_800w.png',
     },
+  },
+  {
+    id: 'jen-tse-huang',
+    roles: [PERSON_ROLE.ORGANIZER],
+    name: 'Jen-tse Huang',
+    url: 'https://penguinnnnn.github.io/',
+    affiliation: 'Johns Hopkins University',
+    focus: 'Human-AI Alignment',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: jentseImage },
   },
 ];
 

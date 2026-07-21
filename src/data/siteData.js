@@ -125,7 +125,6 @@ export const ethicsNote = {
 
 export const advisors = [
   ['Ziang Xiao', 'JHU', 'https://www.cs.jhu.edu/faculty/ziang-xiao/'],
-  ['Jen-tse Huang', 'JHU', 'https://penguinnnnn.github.io/'],
   ['Toby Jia-Jun Li', 'Notre Dame', 'https://toby.li/'],
   ['Soufiane Hayou', 'JHU', 'https://www.soufianehayou.com/'],
   ['Hang Jiang', 'Northeastern', 'https://hjian42.github.io/'],
