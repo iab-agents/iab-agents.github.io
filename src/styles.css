@@ -447,6 +447,13 @@ section .lead {
   grid-column: 2 / span 2;
 }
 
+/* Two advisors get cards; the rest of the board stays an inline list below. */
+.advisors-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  margin-bottom: 1.4rem;
+}
+
 .person-card.person-card--organizer {
   display: grid;
   grid-row: span 4;

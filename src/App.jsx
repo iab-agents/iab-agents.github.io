@@ -23,6 +23,7 @@ import {
 
 const speakers = getPeopleByRole(PERSON_ROLE.SPEAKER);
 const organizers = getPeopleByRole(PERSON_ROLE.ORGANIZER);
+const featuredAdvisors = getPeopleByRole(PERSON_ROLE.ADVISOR);
 
 function Hero() {
   return (
@@ -298,6 +299,9 @@ function Organizers() {
         <div className="adv">
           <h3>Advisory Board</h3>
           <p className="adv-note">Researchers and collaborators who have supported and advised this workshop.</p>
+          <div className="people-grid advisors-grid">
+            {featuredAdvisors.map((advisor) => <PersonCard key={advisor.id} person={advisor} variant="organizer" />)}
+          </div>
           <p><InlinePeople people={advisors} linked /></p>
         </div>
         <div className="adv">

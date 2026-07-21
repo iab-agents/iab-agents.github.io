@@ -134,9 +134,9 @@ export const ethicsNote = {
   url: 'https://neurips.cc/Conferences/2026/MainTrackHandbook',
 };
 
+// Ziang Xiao and Toby Jia-Jun Li are rendered as cards from the people
+// repository; the rest of the board stays as an inline list.
 export const advisors = [
-  ['Ziang Xiao', 'JHU', 'https://www.cs.jhu.edu/faculty/ziang-xiao/'],
-  ['Toby Jia-Jun Li', 'Notre Dame', 'https://toby.li/'],
   ['Soufiane Hayou', 'JHU', 'https://www.soufianehayou.com/'],
   ['Hang Jiang', 'Northeastern', 'https://hjian42.github.io/'],
   ['Weiyan Shi', 'Northeastern', 'https://wyshi.github.io/'],

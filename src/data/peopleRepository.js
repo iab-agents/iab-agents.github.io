@@ -17,6 +17,7 @@ export const AVATAR_TYPE = Object.freeze({
 export const PERSON_ROLE = Object.freeze({
   SPEAKER: 'speaker',
   ORGANIZER: 'organizer',
+  ADVISOR: 'advisor',
 });
 
 const people = [
@@ -196,6 +197,30 @@ const people = [
     affiliation: 'Johns Hopkins University',
     focus: 'Human-AI Alignment',
     avatar: { type: AVATAR_TYPE.LOCAL, src: jentseImage },
+  },
+  {
+    id: 'ziang-xiao',
+    roles: [PERSON_ROLE.ADVISOR],
+    name: 'Ziang Xiao',
+    url: 'https://www.cs.jhu.edu/faculty/ziang-xiao/',
+    affiliation: 'Johns Hopkins University',
+    focus: 'Human-AI Interaction',
+    avatar: {
+      type: AVATAR_TYPE.REMOTE,
+      src: 'https://www.cs.jhu.edu/wp-content/uploads/2022/11/Ziang-Xiao-square-1.jpeg',
+    },
+  },
+  {
+    id: 'toby-jia-jun-li',
+    roles: [PERSON_ROLE.ADVISOR],
+    name: 'Toby Jia-Jun Li',
+    url: 'https://toby.li/',
+    affiliation: 'University of Notre Dame',
+    focus: 'Human-Centered AI',
+    avatar: {
+      type: AVATAR_TYPE.REMOTE,
+      src: 'https://toby.li/images/toby_profile.jpg',
+    },
   },
 ];
 
