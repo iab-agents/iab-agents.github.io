@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import heroImage from '../img/hero.png';
 import Navigation from './components/Navigation';
 import PersonCard from './components/PersonCard';
@@ -88,9 +88,13 @@ function News() {
       <div className="container">
         <h2>News</h2>
         <ul className="news-list">
-          <li><span className="date">Coming soon</span><span>Call for Papers will open shortly. Stay tuned.</span></li>
           <li>
-            <span className="date">Jul 2026</span>
+            <span className="date">Jul 22, 2026</span>
+            <span>Call for Papers is out. Submission site <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a> is open.</span>
+          </li>
+          <li><span className="date">Jul 21, 2026</span><span>Our speakers and panelists are confirmed!</span></li>
+          <li>
+            <span className="date">Jul 12, 2026</span>
             <span>🎉 IAB is accepted as a <a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener noreferrer">NeurIPS 2026</a> workshop in Sydney.</span>
           </li>
         </ul>
@@ -150,7 +154,13 @@ function Schedule() {
               <span className="sch-time">{item.time}</span>
               <span className="sch-desc">
                 {item.title}{' '}
-                {item.emphasis && <strong>{item.emphasis}</strong>}{' '}
+                {Array.isArray(item.emphasis)
+                  ? item.emphasis.map((name, index) => (
+                      <Fragment key={name}>
+                        <strong>{name}</strong>{index < item.emphasis.length - 1 && ', '}
+                      </Fragment>
+                    ))
+                  : item.emphasis && <strong>{item.emphasis}</strong>}{' '}
                 {item.suffix && <span>{item.suffix} </span>}
                 {item.meta && <em>{item.meta}</em>}
               </span>
@@ -316,7 +326,7 @@ function Footer() {
     <footer>
       <div className="container">
         <p><strong>IAB</strong> · Interpreting Agent Behavior: Human-Centered Interpretation for Understanding Agents, Humans, and Interaction</p>
-        <p>Workshop proposal, 2026 · Contact: <a href="mailto:jgao77@jh.edu">jgao77@jh.edu</a></p>
+        <p>NeurIPS Workshop, 2026 · Contact: <a href="mailto:iab-workshop@googlegroups.com">iab-workshop@googlegroups.com</a></p>
       </div>
     </footer>
   );

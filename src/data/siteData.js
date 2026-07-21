@@ -54,25 +54,36 @@ export const topics = [
   },
 ];
 
+// `emphasis` takes an array when several names share one slot; the renderer
+// comma-separates them.
 export const schedule = [
   { time: '09:00 – 09:10', title: 'Opening Remarks' },
-  { time: '09:10 – 09:45', title: 'Keynote:', emphasis: 'To be announced', meta: '(30 min + 5 min Q&A)' },
-  { time: '09:45 – 10:20', title: 'Keynote:', emphasis: 'To be announced', meta: '(30 min + 5 min Q&A)' },
+  { time: '09:10 – 09:45', title: 'Keynote:', emphasis: 'Armando Solar-Lezama', meta: '(30 min + 5 min Q&A)' },
+  { time: '09:45 – 10:20', title: 'Keynote:', emphasis: 'Diyi Yang', meta: '(30 min + 5 min Q&A)' },
   { time: '10:20 – 10:50', title: 'Paper Presentations', meta: '(2 × 15 min)' },
   { time: '10:50 – 12:15', title: 'Poster Session #1 + Coffee Break', break: true },
-  { time: '12:15 – 13:15', title: 'Lunch', break: true },
-  { time: '13:15 – 13:50', title: 'Keynote:', emphasis: 'To be announced', meta: '(30 min + 5 min Q&A)' },
-  { time: '13:50 – 14:25', title: 'Keynote:', emphasis: 'To be announced', meta: '(30 min + 5 min Q&A)' },
+  { time: '12:15 – 13:15', title: 'Lunch with organizers, speakers, and panelists (TBD)', break: true },
+  { time: '13:15 – 13:50', title: 'Keynote:', emphasis: 'Been Kim', meta: '(30 min + 5 min Q&A)' },
+  { time: '13:50 – 14:25', title: 'Keynote:', emphasis: 'Marc-Alexandre Côté', meta: '(30 min + 5 min Q&A)' },
   { time: '14:25 – 15:10', title: 'Paper Presentations', meta: '(3 × 15 min)' },
   { time: '15:10 – 16:00', title: 'Poster Session #2 + Coffee Break', break: true },
   {
-    time: '16:00 – 16:45',
+    time: '16:00 – 17:30',
     title: 'Panel:',
-    emphasis: 'To be announced',
+    emphasis: [
+      'Armando Solar-Lezama',
+      'Diyi Yang',
+      'Been Kim',
+      'Marc-Alexandre Côté',
+      'Bowen Baker',
+      'Dinh Phung',
+      'Kun Zhang',
+      'Nancy F. Chen',
+    ],
     suffix: '—',
     meta: 'Empirical Methods for Understanding Agent Behavior',
   },
-  { time: '16:45 – 17:00', title: 'Best Paper Award + Closing Remarks' },
+  { time: '17:30 – 18:00', title: 'Award Session: Best Paper Award + Closing Remarks' },
 ];
 
 export const cfpCategories = [
