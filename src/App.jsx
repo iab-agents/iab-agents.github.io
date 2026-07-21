@@ -124,7 +124,7 @@ function Scope() {
 
 function Speakers() {
   return (
-    <section id="speakers">
+    <section id="speakers" className="alt">
       <div className="container">
         <h2>Invited Speakers &amp; Panelists</h2>
         <p className="lead">{speakerSection.message}</p>
@@ -140,7 +140,7 @@ function Speakers() {
 
 function Schedule() {
   return (
-    <section id="schedule" className="alt">
+    <section id="schedule">
       <div className="container">
         <h2>Schedule <span className="status-pill">Tentative</span></h2>
         <p className="lead">Full-day workshop with keynotes, paper presentations, posters, and a panel discussion. The program below is tentative and subject to change.</p>
@@ -331,9 +331,9 @@ export default function App() {
         <About />
         <News />
         <Scope />
+        <CallForPapers />
         <Speakers />
         <Schedule />
-        <CallForPapers />
         <Organizers />
         <Sponsors />
       </main>

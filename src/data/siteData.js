@@ -2,9 +2,9 @@ export const navLinks = [
   ['About', 'about'],
   ['News', 'news'],
   ['Scope', 'topics'],
+  ['Call for Papers', 'cfp'],
   ['Speakers', 'speakers'],
   ['Schedule', 'schedule'],
-  ['Call for Papers', 'cfp'],
   ['Organizers', 'organizers'],
 ];
 
