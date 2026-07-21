@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import heroImage from '../img/hero.png';
 import Navigation from './components/Navigation';
 import PersonCard from './components/PersonCard';
@@ -6,10 +7,16 @@ import { getPeopleByRole, PERSON_ROLE } from './data/peopleRepository';
 import {
   advisors,
   cfpCategories,
+  ethicsNote,
   importantDates,
+  neuripsReviewTrack,
+  openReviewUrl,
   programCommittee,
   schedule,
+  specialTrack,
   speakerSection,
+  submissionDeadline,
+  submissionDeadlineLabel,
   submissionFormats,
   topics,
 } from './data/siteData';
@@ -160,30 +167,104 @@ function CallForPapers() {
     <section id="cfp">
       <div className="container">
         <h2>Call for Papers</h2>
-        <p className="lead">We solicit two types of non-archival submissions and welcome empirical studies, datasets, methods papers, tools, and negative results on understanding agent behavior.</p>
-        <p className="lead">We particularly welcome contributions across four categories:</p>
+
+        <h3 className="cfp-heading">Topics</h3>
+        <p className="lead">We call for non-archival submissions on understanding agent behavior. We welcome work that helps us understand what agents do and why, including but not limited to:</p>
         <ul className="lead-list">
-          {cfpCategories.map(([name, description]) => (
-            <li key={name}><strong>{name}:</strong> {description}</li>
+          {cfpCategories.map(([name, description, example]) => (
+            <li key={name}><strong>{name}:</strong> {description} <span className="eg">{example}</span></li>
           ))}
         </ul>
+        <div className="special-track">
+          <h4>This year, we have a <span className="st-hl">Special Track</span>: {specialTrack.heading}</h4>
+          <p>{specialTrack.body}</p>
+        </div>
         <p className="lead">We also encourage negative results and methodological position papers.</p>
+
+        <h3 className="cfp-heading">Submission Format</h3>
         <div className="cfp-formats">
           {submissionFormats.map(([title, description]) => (
-            <article className="cfp-box" key={title}><h3>{title}</h3><p>{description}</p></article>
+            <article className="cfp-box" key={title}><h4>{title}</h4><p>{description}</p></article>
           ))}
           <article className="cfp-box">
-            <h3>Review Process</h3>
-            <p>NeurIPS-style formatting, double-blind review, and three reviews per submission via <a href="https://openreview.net" target="_blank" rel="noopener noreferrer">OpenReview</a>.</p>
+            <h4>Review Process</h4>
+            <p>NeurIPS-style formatting, double-blind review, submission site: <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>.</p>
           </article>
         </div>
-        <div className="dates-row">
-          {importantDates.map(([label, value]) => (
-            <div className="date-card" key={label}><div className="lab">{label}</div><div className="val">{value}</div></div>
-          ))}
+        <div className="cfp-tracks">
+          <article className="cfp-box">
+            <h4>{neuripsReviewTrack.title}</h4>
+            <p>{neuripsReviewTrack.intro}</p>
+            <span className="track-due">{neuripsReviewTrack.due}</span>
+            <p>{neuripsReviewTrack.body}</p>
+          </article>
         </div>
+
+        <h3 className="cfp-heading">Important Dates</h3>
+        <Countdown />
+        <table className="dates-table">
+          <tbody>
+            {importantDates.map(({ label, value, key }) => (
+              <tr key={label} className={key ? 'key' : undefined}>
+                <td>{label}</td>
+                <td>{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <h3 className="cfp-heading">Ethics and LLM Usage</h3>
+        <p className="lead">
+          {ethicsNote.body}{' '}
+          <a href={ethicsNote.url} target="_blank" rel="noopener noreferrer">{ethicsNote.linkText}</a> for details.
+        </p>
       </div>
     </section>
+  );
+}
+
+const pad = (n) => String(n).padStart(2, '0');
+
+function timeLeft(deadline) {
+  const ms = new Date(deadline).getTime() - Date.now();
+  if (ms <= 0) return null;
+  const sec = Math.floor(ms / 1000);
+  return {
+    days: String(Math.floor(sec / 86400)),
+    hours: pad(Math.floor((sec % 86400) / 3600)),
+    minutes: pad(Math.floor((sec % 3600) / 60)),
+    seconds: pad(sec % 60),
+  };
+}
+
+function Countdown() {
+  const [left, setLeft] = useState(() => timeLeft(submissionDeadline));
+
+  useEffect(() => {
+    const timer = setInterval(() => setLeft(timeLeft(submissionDeadline)), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  if (!left) {
+    return (
+      <div className="countdown">
+        <div className="cd-label">Submissions are closed<strong>The deadline has passed.</strong></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="countdown">
+      <div className="cd-label">Submission deadline in<strong>{submissionDeadlineLabel}</strong></div>
+      <div className="cd-units">
+        {[['Days', left.days], ['Hours', left.hours], ['Minutes', left.minutes], ['Seconds', left.seconds]].map(([unit, value]) => (
+          <div className="cd-unit" key={unit}>
+            <div className="n">{value}</div>
+            <div className="u">{unit}</div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

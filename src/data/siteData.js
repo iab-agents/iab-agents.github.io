@@ -76,23 +76,52 @@ export const schedule = [
 ];
 
 export const cfpCategories = [
-  ['Datasets and Resources', 'annotated interaction traces, failure catalogs, human-agent conversational data, simulated behavior data'],
-  ['New Methods and Tools', 'qualitative coding frameworks, think-aloud protocols, interaction visualization, credit assignment tools, LLM-as-judge pipelines'],
-  ['Empirical Studies', 'error taxonomies, failure mode analysis, case studies of agent decisions, probing studies of internal states'],
-  ['Human-Agent Interaction Analysis', 'user verification strategies, user intent grounding, mid-execution adjustment, collaborative failure recovery'],
+  ['Datasets and Resources', 'anything that makes agent behavior available for others to study.', 'For example: human-agent conversational data, simulated behavior data, annotated interaction traces.'],
+  ['Empirical Studies', 'close readings of how agents actually behave in practice.', 'For example: error taxonomies, failure mode analysis, case studies of agent decisions.'],
+  ['Methods and Tools', 'approaches that help researchers make sense of what an agent did.', 'For example: qualitative coding frameworks, interaction visualization.'],
+  ['Human-Agent Interaction', 'how people direct agents, check their work, and come to trust or distrust them.', "For example: checking whether an agent's work is right, figuring out what the user really meant, redirecting an agent mid-task, recovering together after a mistake."],
 ];
+
+export const specialTrack = {
+  heading: 'how should we represent an agent trajectory?',
+  body: 'We invite work on schemas for recording what an agent did, new ways to structure and share trajectory datasets, and formats that make agent behavior easier to read, compare, and analyze.',
+};
 
 export const submissionFormats = [
   ['Long Papers', 'Up to 9 pages + references. For full empirical studies, datasets, benchmarks, or comprehensive analyses.'],
   ['Short Papers', 'Up to 4 pages + references. For position papers, tools, demos, preliminary findings, and negative results.'],
 ];
 
+export const openReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/IAB';
+
+export const neuripsReviewTrack = {
+  title: 'Submission with NeurIPS reviews',
+  intro: 'If your paper was reviewed at NeurIPS 2026, you can submit it here together with the reviews and your response. This is a second route into the workshop, alongside the regular submission above.',
+  due: 'Due October 1, 2026, one week after NeurIPS decisions.',
+  body: 'The organizing team gives these papers a light review, so you can expect a decision within one or two weeks. Because the workshop is non-archival, presenting here does not affect where you send the paper next. We simply want to give the work a place to be read and discussed.',
+};
+
+export const submissionDeadline = '2026-08-30T11:59:59Z';
+export const submissionDeadlineLabel = 'August 29, 2026 · midnight AoE';
+
+// `key: true` highlights the row in the dates table.
 export const importantDates = [
-  ['Submission', 'Aug 29, 2026'],
-  ['Notification', 'Sep 29, 2026'],
-  ['Camera-ready', 'Nov 20, 2026'],
-  ['Workshop', 'Dec 11–12, 2026'],
+  { label: 'Submission opens', value: 'July 22, 2026' },
+  { label: 'Submission deadline (without reviews)', value: 'August 29, 2026', key: true },
+  { label: 'Review period', value: 'August 31 – September 20, 2026' },
+  { label: 'Discussion period', value: 'September 21–27, 2026' },
+  { label: 'Decision notification', value: 'September 29, 2026', key: true },
+  { label: '"Submission with NeurIPS reviews" deadline', value: 'October 1, 2026', key: true },
+  { label: '"Submission with NeurIPS reviews" notification', value: 'TBD', key: true },
+  { label: 'Camera-ready deadline', value: 'November 20, 2026', key: true },
+  { label: 'Workshop date', value: 'December 11–12, 2026', key: true },
 ];
+
+export const ethicsNote = {
+  body: 'Submissions must adhere to the NeurIPS main conference policies on the use of agents and large language models, as well as on research ethics, including obtaining appropriate IRB/institutional approval for studies involving human participants. Consult the',
+  linkText: 'NeurIPS 2026 Main Track Handbook',
+  url: 'https://neurips.cc/Conferences/2026/MainTrackHandbook',
+};
 
 export const advisors = [
   ['Ziang Xiao', 'JHU', 'https://www.cs.jhu.edu/faculty/ziang-xiao/'],

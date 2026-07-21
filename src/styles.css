@@ -5,6 +5,7 @@
   --text-secondary: #5a6072;
   --accent: #e0e7ff;
   --blue: #1d4ed8;
+  --red: #b91c1c;
   --border: #e2e5ea;
   --card: #ffffff;
   --radius: 10px;
@@ -593,7 +594,7 @@ section .lead {
   background: var(--card);
 }
 
-.cfp-box h3 {
+.cfp-box h4 {
   margin-bottom: 0.3rem;
   font-size: 0.85rem;
   font-weight: 700;
@@ -603,6 +604,135 @@ section .lead {
   margin: 0;
   color: var(--text-secondary);
   font-size: 0.82rem;
+}
+
+.cfp-heading {
+  margin: 2.2rem 0 0.8rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.lead-list .eg {
+  font-style: italic;
+  opacity: 0.82;
+}
+
+.special-track {
+  margin: 0 0 1.6rem;
+  padding: 0.1rem 0 0.1rem 1.5rem;
+  border-left: 3px solid var(--accent);
+}
+
+.special-track h4 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.special-track h4 .st-hl { color: var(--red); }
+
+.special-track p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.cfp-tracks {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  gap: 1rem;
+}
+
+.cfp-box .track-due {
+  display: block;
+  margin: 0.5rem 0;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.6rem 0 1.4rem;
+  padding: 1.1rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-family: 'Inter', sans-serif;
+  gap: 1.4rem;
+}
+
+.countdown .cd-label {
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.countdown .cd-label strong {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.cd-units {
+  display: flex;
+  margin-left: auto;
+  gap: 1.3rem;
+}
+
+.cd-unit {
+  min-width: 4.6rem;
+  text-align: center;
+}
+
+.cd-unit .n {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-unit .u {
+  margin-top: 0.2rem;
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.dates-table {
+  width: 100%;
+  margin-top: 0.4rem;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+}
+
+.dates-table td {
+  padding: 0.85rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.dates-table td:first-child { width: 55%; }
+
+.dates-table tr.key td {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .dates-row {
@@ -723,6 +853,10 @@ footer p + p { margin-top: 0.3rem; }
   .speakers-grid .person-card { flex-basis: calc((100% - 1.2rem) / 2); }
   .cfp-formats,
   .dates-row { grid-template-columns: 1fr; }
+  .dates-table td { padding: 0.6rem 0.4rem; font-size: 0.85rem; }
+  .cd-units { margin-left: 0; gap: 0.9rem; }
+  .cd-unit { min-width: 3.6rem; }
+  .cd-unit .n { font-size: 1.8rem; }
 }
 
 @media (max-width: 560px) {

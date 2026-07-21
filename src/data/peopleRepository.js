@@ -1,8 +1,11 @@
+import beenImage from '../../img/been.png';
 import bowenImage from '../../img/bowen.jpg';
 import boyuanImage from '../../img/boyuan.jpg';
 import kaiserImage from '../../img/kaiser.jpg';
 import katherineImage from '../../img/katherine.jpg';
+import kunImage from '../../img/kun.jpg';
 import marcImage from '../../img/marc.jpg';
+import nancyImage from '../../img/nancy.jpg';
 
 export const AVATAR_TYPE = Object.freeze({
   LOCAL: 'local',
@@ -78,7 +81,25 @@ const people = [
     affiliation: 'A*STAR',
     focus: 'Multimodal Generative AI',
     note: 'Tentative speaker · In-person or online attendance TBD',
-    avatar: { type: AVATAR_TYPE.INITIALS, value: 'NC' },
+    avatar: { type: AVATAR_TYPE.LOCAL, src: nancyImage },
+  },
+  {
+    id: 'been-kim',
+    roles: [PERSON_ROLE.SPEAKER],
+    name: 'Been Kim',
+    url: 'https://beenkim.github.io/',
+    affiliation: 'Google DeepMind',
+    focus: 'Agentic Interpretability',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: beenImage },
+  },
+  {
+    id: 'kun-zhang',
+    roles: [PERSON_ROLE.SPEAKER],
+    name: 'Kun Zhang',
+    url: 'https://www.andrew.cmu.edu/user/kunz1/index.html',
+    affiliation: 'Carnegie Mellon University & MBZUAI',
+    focus: 'Causal Discovery',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: kunImage },
   },
   {
     id: 'jie-sophia-gao',
