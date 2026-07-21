@@ -1,8 +1,8 @@
 import beenImage from '../../img/been.png';
 import bowenImage from '../../img/bowen.jpg';
 import boyuanImage from '../../img/boyuan.jpg';
-import kaiserImage from '../../img/kaiser.jpg';
 import jentseImage from '../../img/jentse.jpg';
+import kaiserImage from '../../img/kaiser.jpg';
 import katherineImage from '../../img/katherine.jpg';
 import kunImage from '../../img/kun.jpg';
 import marcImage from '../../img/marc.jpg';
@@ -45,13 +45,13 @@ const people = [
     },
   },
   {
-    id: 'bowen-baker',
+    id: 'been-kim',
     roles: [PERSON_ROLE.SPEAKER],
-    name: 'Bowen Baker',
-    url: 'https://bowenbaker.github.io/',
-    affiliation: 'OpenAI',
-    focus: 'Multi-Agent Systems',
-    avatar: { type: AVATAR_TYPE.LOCAL, src: bowenImage },
+    name: 'Been Kim',
+    url: 'https://beenkim.github.io/',
+    affiliation: 'Google DeepMind',
+    focus: 'Agentic Interpretability',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: beenImage },
   },
   {
     id: 'marc-alexandre-cote',
@@ -61,6 +61,15 @@ const people = [
     affiliation: 'Microsoft Research',
     focus: 'RL & Language Agents',
     avatar: { type: AVATAR_TYPE.LOCAL, src: marcImage },
+  },
+  {
+    id: 'bowen-baker',
+    roles: [PERSON_ROLE.SPEAKER],
+    name: 'Bowen Baker',
+    url: 'https://bowenbaker.github.io/',
+    affiliation: 'OpenAI',
+    focus: 'Multi-Agent Systems',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: bowenImage },
   },
   {
     id: 'dinh-phung',
@@ -75,25 +84,6 @@ const people = [
     },
   },
   {
-    id: 'nancy-f-chen',
-    roles: [PERSON_ROLE.SPEAKER],
-    name: 'Nancy F. Chen',
-    url: 'https://sites.google.com/site/nancyfchen/bio',
-    affiliation: 'A*STAR',
-    focus: 'Multimodal Generative AI',
-    note: 'Tentative speaker · In-person or online attendance TBD',
-    avatar: { type: AVATAR_TYPE.LOCAL, src: nancyImage },
-  },
-  {
-    id: 'been-kim',
-    roles: [PERSON_ROLE.SPEAKER],
-    name: 'Been Kim',
-    url: 'https://beenkim.github.io/',
-    affiliation: 'Google DeepMind',
-    focus: 'Agentic Interpretability',
-    avatar: { type: AVATAR_TYPE.LOCAL, src: beenImage },
-  },
-  {
     id: 'kun-zhang',
     roles: [PERSON_ROLE.SPEAKER],
     name: 'Kun Zhang',
@@ -101,6 +91,16 @@ const people = [
     affiliation: 'Carnegie Mellon University & MBZUAI',
     focus: 'Causal Discovery',
     avatar: { type: AVATAR_TYPE.LOCAL, src: kunImage },
+  },
+  {
+    id: 'nancy-f-chen',
+    roles: [PERSON_ROLE.SPEAKER],
+    name: 'Nancy F. Chen',
+    url: 'https://sites.google.com/site/nancyfchen/bio',
+    affiliation: 'A*STAR Singapore',
+    focus: 'Multimodal Generative AI',
+    note: 'Tentative speaker · In-person or online attendance TBD',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: nancyImage },
   },
   {
     id: 'jie-sophia-gao',
