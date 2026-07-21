@@ -81,7 +81,7 @@ export const schedule = [
       'Nancy F. Chen',
     ],
     suffix: '—',
-    meta: 'Empirical Methods for Understanding Agent Behavior',
+    meta: 'TBD',
   },
   { time: '17:30 – 18:00', title: 'Award Session: Best Paper Award + Closing Remarks' },
 ];
@@ -134,15 +134,15 @@ export const ethicsNote = {
   url: 'https://neurips.cc/Conferences/2026/MainTrackHandbook',
 };
 
-// Ziang Xiao and Toby Jia-Jun Li are rendered as cards from the people
-// repository; the rest of the board stays as an inline list.
+// Ziang Xiao is rendered as a card from the people repository; the rest of
+// the board stays as an inline list.
 export const advisors = [
-  ['Soufiane Hayou', 'JHU', 'https://www.soufianehayou.com/'],
-  ['Hang Jiang', 'Northeastern', 'https://hjian42.github.io/'],
+  ['Toby Jia-Jun Li', 'Notre Dame', 'https://toby.li/'],
   ['Weiyan Shi', 'Northeastern', 'https://wyshi.github.io/'],
-  ['Wei Lu', 'NTU Singapore', 'https://scholar.google.com/citations?user=n41KN9AAAAAJ&hl=en'],
-  ['Samuel Nathanson', 'xAI', 'https://www.linkedin.com/in/nathanson/'],
   ['Fan Bai', 'Bloomberg AI', 'https://bflashcp3f.github.io/'],
+  ['Hang Jiang', 'Northeastern', 'https://hjian42.github.io/'],
+  ['Soufiane Hayou', 'JHU', 'https://www.soufianehayou.com/'],
+  ['Samuel Nathanson', 'xAI', 'https://www.linkedin.com/in/nathanson/'],
 ];
 
 export const programCommittee = [

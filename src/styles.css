@@ -447,20 +447,29 @@ section .lead {
   grid-column: 2 / span 2;
 }
 
-/* Two advisors get cards; the rest of the board stays an inline list below. */
-.advisors-grid {
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  align-items: start;
-  margin-bottom: 1.4rem;
+/* A person named inside running text: portrait sits on the line, not above it. */
+.person-inline {
+  white-space: nowrap;
 }
 
-.advisors-grid .person-card--organizer {
-  grid-column: span 2;
+.person-inline img,
+.person-inline .initials {
+  width: 2.2em;
+  height: 2.2em;
+  margin-right: 0.36em;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  object-fit: cover;
+  vertical-align: -0.79em;
 }
 
-/* Two cards across ten half columns: start at the fourth to centre the pair. */
-.advisors-grid .person-card--organizer:first-child {
-  grid-column: 4 / span 2;
+.person-inline .initials {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 0.62em;
+  font-weight: 700;
 }
 
 .person-card.person-card--organizer {
@@ -837,8 +846,6 @@ footer p + p { margin-top: 0.3rem; }
   .speakers-grid .person-card { flex-basis: calc((100% - 2 * 1.2rem) / 3); }
   .organizers-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .organizers-grid .person-card--organizer:nth-child(6) { grid-column: span 2; }
-  .advisors-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .advisors-grid .person-card--organizer:first-child { grid-column: 2 / span 2; }
 }
 
 @media (max-width: 980px) {
@@ -873,8 +880,6 @@ footer p + p { margin-top: 0.3rem; }
   .hero h1 { font-size: 2.1rem; white-space: normal; }
   .topic-card h3 { align-items: flex-start; flex-wrap: wrap; }
   .organizers-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .advisors-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .advisors-grid .person-card--organizer:first-child { grid-column: span 2; }
   .speakers-grid .person-card { flex-basis: calc((100% - 1.2rem) / 2); }
   .cfp-formats,
   .dates-row { grid-template-columns: 1fr; }

@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import heroImage from '../img/hero.png';
+import Avatar from './components/Avatar';
 import Navigation from './components/Navigation';
 import PersonCard from './components/PersonCard';
 import TopicIcon from './components/TopicIcon';
@@ -23,7 +24,7 @@ import {
 
 const speakers = getPeopleByRole(PERSON_ROLE.SPEAKER);
 const organizers = getPeopleByRole(PERSON_ROLE.ORGANIZER);
-const featuredAdvisors = getPeopleByRole(PERSON_ROLE.ADVISOR);
+const [leadAdvisor] = getPeopleByRole(PERSON_ROLE.ADVISOR);
 
 function Hero() {
   return (
@@ -279,6 +280,15 @@ function Countdown() {
   );
 }
 
+function PersonInline({ person }) {
+  return (
+    <span className="person-inline">
+      <Avatar avatar={person.avatar} name={person.name} />
+      <a href={person.url} target="_blank" rel="noopener noreferrer">{person.name}</a>
+    </span>
+  );
+}
+
 function InlinePeople({ people, linked = false }) {
   return people.map(([name, affiliation, url], index) => (
     <span key={name}>
@@ -298,11 +308,11 @@ function Organizers() {
         </div>
         <div className="adv">
           <h3>Advisory Board</h3>
-          <p className="adv-note">We thank the following faculty and senior researchers who have supported this workshop.</p>
-          <div className="people-grid advisors-grid">
-            {featuredAdvisors.map((advisor) => <PersonCard key={advisor.id} person={advisor} variant="organizer" />)}
-          </div>
-          <p><InlinePeople people={advisors} linked /></p>
+          <p>
+            We specially thank <PersonInline person={leadAdvisor} /> for the advising, and other senior
+            collaborators and senior researchers for their insightful discussions,
+            including <InlinePeople people={advisors} linked />.
+          </p>
         </div>
         <div className="adv">
           <h3>Program Committee</h3>

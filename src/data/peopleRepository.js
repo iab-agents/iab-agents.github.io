@@ -210,18 +210,6 @@ const people = [
       src: 'https://www.cs.jhu.edu/wp-content/uploads/2022/11/Ziang-Xiao-square-1.jpeg',
     },
   },
-  {
-    id: 'toby-jia-jun-li',
-    roles: [PERSON_ROLE.ADVISOR],
-    name: 'Toby Jia-Jun Li',
-    url: 'https://toby.li/',
-    affiliation: 'University of Notre Dame',
-    focus: 'Human-Centered AI',
-    avatar: {
-      type: AVATAR_TYPE.REMOTE,
-      src: 'https://toby.li/images/toby_profile.jpg',
-    },
-  },
 ];
 
 const avatarTypes = new Set(Object.values(AVATAR_TYPE));
