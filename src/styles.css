@@ -428,7 +428,7 @@ section .lead {
 
 .speakers-grid .person-card {
   max-width: 220px;
-  flex: 0 0 calc((100% - 4 * 1.2rem) / 5);
+  flex: 0 0 calc((100% - 3 * 1.2rem) / 4);
 }
 
 .organizers-grid {
