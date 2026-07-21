@@ -298,7 +298,7 @@ function Organizers() {
         </div>
         <div className="adv">
           <h3>Advisory Board</h3>
-          <p className="adv-note">Researchers and collaborators who have supported and advised this workshop.</p>
+          <p className="adv-note">We thank faculty and senior researchers who have supported this workshop.</p>
           <div className="people-grid advisors-grid">
             {featuredAdvisors.map((advisor) => <PersonCard key={advisor.id} person={advisor} variant="organizer" />)}
           </div>
