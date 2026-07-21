@@ -1,8 +1,12 @@
+import beenImage from '../../img/been.png';
 import bowenImage from '../../img/bowen.jpg';
 import boyuanImage from '../../img/boyuan.jpg';
+import jentseImage from '../../img/jentse.jpg';
 import kaiserImage from '../../img/kaiser.jpg';
 import katherineImage from '../../img/katherine.jpg';
+import kunImage from '../../img/kun.jpg';
 import marcImage from '../../img/marc.jpg';
+import nancyImage from '../../img/nancy.jpg';
 
 export const AVATAR_TYPE = Object.freeze({
   LOCAL: 'local',
@@ -13,6 +17,7 @@ export const AVATAR_TYPE = Object.freeze({
 export const PERSON_ROLE = Object.freeze({
   SPEAKER: 'speaker',
   ORGANIZER: 'organizer',
+  ADVISOR: 'advisor',
 });
 
 const people = [
@@ -41,13 +46,13 @@ const people = [
     },
   },
   {
-    id: 'bowen-baker',
+    id: 'been-kim',
     roles: [PERSON_ROLE.SPEAKER],
-    name: 'Bowen Baker',
-    url: 'https://bowenbaker.github.io/',
-    affiliation: 'OpenAI',
-    focus: 'Multi-Agent Systems',
-    avatar: { type: AVATAR_TYPE.LOCAL, src: bowenImage },
+    name: 'Been Kim',
+    url: 'https://beenkim.github.io/',
+    affiliation: 'Google DeepMind',
+    focus: 'Agentic Interpretability',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: beenImage },
   },
   {
     id: 'marc-alexandre-cote',
@@ -57,6 +62,15 @@ const people = [
     affiliation: 'Microsoft Research',
     focus: 'RL & Language Agents',
     avatar: { type: AVATAR_TYPE.LOCAL, src: marcImage },
+  },
+  {
+    id: 'bowen-baker',
+    roles: [PERSON_ROLE.SPEAKER],
+    name: 'Bowen Baker',
+    url: 'https://bowenbaker.github.io/',
+    affiliation: 'OpenAI',
+    focus: 'Multi-Agent Systems',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: bowenImage },
   },
   {
     id: 'dinh-phung',
@@ -71,14 +85,22 @@ const people = [
     },
   },
   {
+    id: 'kun-zhang',
+    roles: [PERSON_ROLE.SPEAKER],
+    name: 'Kun Zhang',
+    url: 'https://www.andrew.cmu.edu/user/kunz1/index.html',
+    affiliation: 'Carnegie Mellon University & MBZUAI',
+    focus: 'Causal Discovery',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: kunImage },
+  },
+  {
     id: 'nancy-f-chen',
     roles: [PERSON_ROLE.SPEAKER],
     name: 'Nancy F. Chen',
     url: 'https://sites.google.com/site/nancyfchen/bio',
-    affiliation: 'A*STAR',
+    affiliation: 'A*STAR Singapore',
     focus: 'Multimodal Generative AI',
-    note: 'Tentative speaker · In-person or online attendance TBD',
-    avatar: { type: AVATAR_TYPE.INITIALS, value: 'NC' },
+    avatar: { type: AVATAR_TYPE.LOCAL, src: nancyImage },
   },
   {
     id: 'jie-sophia-gao',
@@ -165,6 +187,39 @@ const people = [
     avatar: {
       type: AVATAR_TYPE.REMOTE,
       src: 'https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8dd39412-d3c3-40bb-9209-be3a78a93ae1_800w.png',
+    },
+  },
+  {
+    id: 'jen-tse-huang',
+    roles: [PERSON_ROLE.ORGANIZER],
+    name: 'Jen-tse Huang',
+    url: 'https://penguinnnnn.github.io/',
+    affiliation: 'Johns Hopkins University',
+    focus: 'Human-AI Alignment',
+    avatar: { type: AVATAR_TYPE.LOCAL, src: jentseImage },
+  },
+  {
+    id: 'ziang-xiao',
+    roles: [PERSON_ROLE.ADVISOR],
+    name: 'Ziang Xiao',
+    url: 'https://www.cs.jhu.edu/faculty/ziang-xiao/',
+    affiliation: 'Johns Hopkins University',
+    focus: 'Human-AI Interaction',
+    avatar: {
+      type: AVATAR_TYPE.REMOTE,
+      src: 'https://www.cs.jhu.edu/wp-content/uploads/2022/11/Ziang-Xiao-square-1.jpeg',
+    },
+  },
+  {
+    id: 'toby-jia-jun-li',
+    roles: [PERSON_ROLE.ADVISOR],
+    name: 'Toby Jia-Jun Li',
+    url: 'https://toby.li/',
+    affiliation: 'University of Notre Dame',
+    focus: 'Human-Centered AI',
+    avatar: {
+      type: AVATAR_TYPE.REMOTE,
+      src: 'https://toby.li/images/toby_profile.jpg',
     },
   },
 ];

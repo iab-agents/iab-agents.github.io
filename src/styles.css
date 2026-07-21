@@ -5,6 +5,7 @@
   --text-secondary: #5a6072;
   --accent: #e0e7ff;
   --blue: #1d4ed8;
+  --red: #b91c1c;
   --border: #e2e5ea;
   --card: #ffffff;
   --radius: 10px;
@@ -427,12 +428,39 @@ section .lead {
 
 .speakers-grid .person-card {
   max-width: 220px;
-  flex: 0 0 calc((100% - 4 * 1.2rem) / 5);
+  flex: 0 0 calc((100% - 3 * 1.2rem) / 4);
 }
 
+/* Ten half-columns rather than five whole ones, so a short last row can be
+   offset by half a card and sit centred under the row above. */
 .organizers-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(10, minmax(0, 1fr));
   align-items: start;
+}
+
+.organizers-grid .person-card--organizer {
+  grid-column: span 2;
+}
+
+/* Nine organizers leave one empty slot on the second row. */
+.organizers-grid .person-card--organizer:nth-child(6) {
+  grid-column: 2 / span 2;
+}
+
+/* Two advisors get cards; the rest of the board stays an inline list below. */
+.advisors-grid {
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  align-items: start;
+  margin-bottom: 1.4rem;
+}
+
+.advisors-grid .person-card--organizer {
+  grid-column: span 2;
+}
+
+/* Two cards across ten half columns: start at the fourth to centre the pair. */
+.advisors-grid .person-card--organizer:first-child {
+  grid-column: 4 / span 2;
 }
 
 .person-card.person-card--organizer {
@@ -560,14 +588,6 @@ section .lead {
 .sch-desc strong { color: var(--blue); }
 .sch-desc em { color: var(--text-secondary); font-size: 0.9rem; }
 
-.sch.brk {
-  margin: 0.15rem -0.6rem;
-  padding-right: 0.6rem;
-  padding-left: 0.6rem;
-  border-radius: 6px;
-  background: var(--bg-alt);
-}
-
 .lead-list {
   margin: 0 0 1.5rem 1.2rem;
   padding: 0;
@@ -593,7 +613,7 @@ section .lead {
   background: var(--card);
 }
 
-.cfp-box h3 {
+.cfp-box h4 {
   margin-bottom: 0.3rem;
   font-size: 0.85rem;
   font-weight: 700;
@@ -603,6 +623,135 @@ section .lead {
   margin: 0;
   color: var(--text-secondary);
   font-size: 0.82rem;
+}
+
+.cfp-heading {
+  margin: 2.2rem 0 0.8rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.lead-list .eg {
+  font-style: italic;
+  opacity: 0.82;
+}
+
+.special-track {
+  margin: 0 0 1.6rem;
+  padding: 0.1rem 0 0.1rem 1.5rem;
+  border-left: 3px solid var(--accent);
+}
+
+.special-track h4 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.special-track h4 .st-hl { color: var(--red); }
+
+.special-track p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.cfp-tracks {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  gap: 1rem;
+}
+
+.cfp-box .track-due {
+  display: block;
+  margin: 0.5rem 0;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.6rem 0 1.4rem;
+  padding: 1.1rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-family: 'Inter', sans-serif;
+  gap: 1.4rem;
+}
+
+.countdown .cd-label {
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.countdown .cd-label strong {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.cd-units {
+  display: flex;
+  margin-left: auto;
+  gap: 1.3rem;
+}
+
+.cd-unit {
+  min-width: 4.6rem;
+  text-align: center;
+}
+
+.cd-unit .n {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-unit .u {
+  margin-top: 0.2rem;
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.dates-table {
+  width: 100%;
+  margin-top: 0.4rem;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+}
+
+.dates-table td {
+  padding: 0.85rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.dates-table td:first-child { width: 55%; }
+
+.dates-table tr.key td {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .dates-row {
@@ -686,6 +835,10 @@ footer p + p { margin-top: 0.3rem; }
 @media (max-width: 900px) {
   .nav-links { gap: 1rem; }
   .speakers-grid .person-card { flex-basis: calc((100% - 2 * 1.2rem) / 3); }
+  .organizers-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .organizers-grid .person-card--organizer:nth-child(6) { grid-column: span 2; }
+  .advisors-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .advisors-grid .person-card--organizer:first-child { grid-column: 2 / span 2; }
 }
 
 @media (max-width: 980px) {
@@ -719,10 +872,16 @@ footer p + p { margin-top: 0.3rem; }
   .hero { min-height: 560px; }
   .hero h1 { font-size: 2.1rem; white-space: normal; }
   .topic-card h3 { align-items: flex-start; flex-wrap: wrap; }
-  .organizers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .organizers-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .advisors-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .advisors-grid .person-card--organizer:first-child { grid-column: span 2; }
   .speakers-grid .person-card { flex-basis: calc((100% - 1.2rem) / 2); }
   .cfp-formats,
   .dates-row { grid-template-columns: 1fr; }
+  .dates-table td { padding: 0.6rem 0.4rem; font-size: 0.85rem; }
+  .cd-units { margin-left: 0; gap: 0.9rem; }
+  .cd-unit { min-width: 3.6rem; }
+  .cd-unit .n { font-size: 1.8rem; }
 }
 
 @media (max-width: 560px) {
