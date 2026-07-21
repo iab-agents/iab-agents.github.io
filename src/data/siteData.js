@@ -9,8 +9,8 @@ export const navLinks = [
 ];
 
 export const speakerSection = Object.freeze({
-  showProfiles: false,
-  message: 'We have wonderful speaker lists to give talks, and we are finalizing the in person attendance. To be announced.',
+  showProfiles: true,
+  message: 'We thank our invited speakers and panelists.',
 });
 
 export const topics = [

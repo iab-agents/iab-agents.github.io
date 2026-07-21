@@ -126,7 +126,7 @@ function Speakers() {
   return (
     <section id="speakers">
       <div className="container">
-        <h2>Invited Speakers</h2>
+        <h2>Invited Speakers &amp; Panelists</h2>
         <p className="lead">{speakerSection.message}</p>
         {speakerSection.showProfiles && (
           <div className="people-grid speakers-grid">
