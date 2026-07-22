@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
 import heroImage from '../img/hero.png';
-import Avatar from './components/Avatar';
 import Navigation from './components/Navigation';
 import PersonCard from './components/PersonCard';
 import TopicIcon from './components/TopicIcon';
@@ -14,7 +13,6 @@ import {
   openReviewUrl,
   programCommittee,
   schedule,
-  specialTrack,
   speakerSection,
   submissionDeadline,
   submissionDeadlineLabel,
@@ -24,7 +22,6 @@ import {
 
 const speakers = getPeopleByRole(PERSON_ROLE.SPEAKER);
 const organizers = getPeopleByRole(PERSON_ROLE.ORGANIZER);
-const [leadAdvisor] = getPeopleByRole(PERSON_ROLE.ADVISOR);
 
 function Hero() {
   return (
@@ -60,17 +57,17 @@ function About() {
           <p className="line">Humans cannot read through thousands of log entries.</p>
           <p className="line">They need patterns, summaries, and explanations, in other words <em>interpretation</em>.</p>
           <p className="line">But we do not yet know how to <em>generate it at scale</em>.</p>
-          <p className="line">Our aim with <em>IAB</em> is to turn agent runtime data into human understanding of what agents do and how people work with them.</p>
+          <p className="line">Our aim with <em>IAB</em> is to turn agent runtime data into human understanding of what agents do and how humans work with them.</p>
         </div>
         <div className="about-content">
           <p>
-            Commercial autonomous agents such as Claude and Codex now run for hours or even days to complete tasks, and along the way they show complex behavior: they plan, reason, use tools, recover from errors, coordinate with subagents, and communicate with users. We use the word <em>behavior</em>, as in the study of human behavior, for the full range of what an agent does during runtime. This behavior spans <span className="uline">three levels: what agents do and how they do it, what people do in response, and how the two work together</span> through instructions and corrections. All three generate vast behavioral data such as execution logs and interaction traces. Yet existing approaches read this data largely for outcomes: benchmarks tell us <em>whether</em> an agent succeeds or fails, <span className="uline">but not <em>what</em> it did or <em>how</em> it did it</span>.
+            Commercial autonomous agents such as Claude and Codex now run for hours or even days to complete tasks, and along the way they show complex behavior: they plan, reason, use tools, recover from errors, coordinate with subagents, and communicate with users. We use the word <em>behavior</em>, as in the study of human behavior, for the full range of what an agent does during runtime. This behavior spans <span className="uline">three levels: what agents do and how they do it, what humans do in response, and how the two work together</span> through instructions and corrections. All three generate vast behavioral data such as execution logs and interaction traces. Yet existing approaches read this data largely for outcomes: benchmarks tell us <em>whether</em> an agent succeeds or fails, <span className="uline">but not <em>what</em> it did or <em>how</em> it did it</span>.
           </p>
           <p>
             Understanding <em>what</em> and <em>how</em> is what people actually need. It lets agent developers and model trainers debug failures, compare architectures, and filter training data; it lets agent users and deployment engineers watch production agents to understand safety, cost, and reliability risks. For agentic models, the trajectory is both the training data and what the reward scores. Interpreting it therefore sits inside the training loop, deciding which rollouts are safe to reinforce and flagging reward that reflects a verifier exploit rather than real skill. But the field still <span className="uline">lacks the vocabulary, methods, and tools to describe and analyze agent behavior at scale</span>. Humans cannot read through thousands of log entries; they need patterns, summaries, and explanations, in other words <span className="uline"><em>interpretation</em></span>, and we do not yet know how to scale it.
           </p>
           <p>
-            <strong>IAB works toward an interpretive science of agent behavior.</strong> It treats behavior across these three levels as the object of study and proceeds in two steps: first gathering the community to identify the problem space and emerging challenges, then bringing the broad set of methods that social scientists have developed — grounded theory, qualitative analysis, error analysis, corpus analysis, trace analysis, and red-teaming — to read meaning from this data, discover categories from it, and count them. <span className="uline">IAB bridges two communities: social science and HCI contribute the interpretation methods, while AI contributes the problem space</span> of evaluation, governance, alignment, and responsible AI.
+            <strong>IAB works toward an interpretive science of agent behavior.</strong> It treats behavior across these three levels as the object of study and proceeds in two steps: first gathering the community to identify the problem space and emerging challenges, then bringing the broad set of methods that social scientists have developed, such as grounded theory, qualitative analysis, error analysis, corpus analysis, trace analysis, and red-teaming, to read meaning from this data, discover categories from it, and count them. <span className="uline">IAB bridges two communities: social science and HCI contribute the interpretation methods, while AI contributes the problem space</span> of evaluation, governance, alignment, and responsible AI.
           </p>
           <p className="paper-callout">
             Read our recent paper{' '}
@@ -110,14 +107,13 @@ function Scope() {
     <section id="topics" className="alt">
       <div className="container">
         <h2>Scope</h2>
-        <p className="lead">IAB studies agent behavior across three levels, asking three questions.</p>
+        <p className="lead">IAB studies agent behavior at three levels: the agent, the human, and their interaction. At each level we ask what happens and how.</p>
         <div className="topics-grid">
           {topics.map((topic) => (
             <article className="topic-card" key={topic.type}>
               <h3>
                 <TopicIcon type={topic.type} color={topic.color} />
-                <span style={{ color: topic.color }}>{topic.label}</span>
-                <span>— {topic.question}</span>
+                <span><span style={{ color: topic.color }}>{topic.label}</span>: {topic.question}</span>
               </h3>
               <ul>{topic.items.map((item) => <li key={item}>{item}</li>)}</ul>
             </article>
@@ -174,6 +170,20 @@ function Schedule() {
   );
 }
 
+function CfpCategoryItem({ category }) {
+  const { name, description, examples } = category;
+  return (
+    <li>
+      <strong>{name}:</strong> {description}
+      {examples?.length ? (
+        <ul className="eg-list">
+          {examples.map((example) => <li key={example}>{example}</li>)}
+        </ul>
+      ) : null}
+    </li>
+  );
+}
+
 function CallForPapers() {
   return (
     <section id="cfp">
@@ -181,17 +191,11 @@ function CallForPapers() {
         <h2>Call for Papers</h2>
 
         <h3 className="cfp-heading">Topics</h3>
-        <p className="lead">We call for non-archival submissions on understanding agent behavior. We welcome work that helps us understand what agents do and why, including but not limited to:</p>
+        <p className="lead">We call for non-archival submissions on understanding agent behavior. Work can address any level of our <a href="#topics">Scope</a> (what agents do, what humans do in response, or how the two interact). Specific topics include, but are not limited to:</p>
         <ul className="lead-list">
-          {cfpCategories.map(([name, description, example]) => (
-            <li key={name}><strong>{name}:</strong> {description} <span className="eg">{example}</span></li>
-          ))}
+          {cfpCategories.map((category) => <CfpCategoryItem key={category.name} category={category} />)}
         </ul>
-        <div className="special-track">
-          <h4>This year, we have a <span className="st-hl">Special Track</span>: {specialTrack.heading}</h4>
-          <p>{specialTrack.body}</p>
-        </div>
-        <p className="lead">We also encourage negative results and methodological position papers.</p>
+        <p className="lead">We also welcome negative results and methodological position papers. NeurIPS-rejected papers may be resubmitted with their reviews, and we will decide on acceptance ourselves. NeurIPS-accepted papers that want more visibility are also welcome to resubmit with their reviews.</p>
 
         <h3 className="cfp-heading">Submission Format</h3>
         <div className="cfp-formats">
@@ -280,15 +284,6 @@ function Countdown() {
   );
 }
 
-function PersonInline({ person }) {
-  return (
-    <span className="person-inline">
-      <Avatar avatar={person.avatar} name={person.name} />
-      <a href={person.url} target="_blank" rel="noopener noreferrer">{person.name}</a>
-    </span>
-  );
-}
-
 function InlinePeople({ people, linked = false }) {
   return people.map(([name, affiliation, url], index) => (
     <span key={name}>
@@ -308,16 +303,13 @@ function Organizers() {
         </div>
         <div className="adv">
           <h3>Advisory Board</h3>
-          <p>
-            We specially thank <PersonInline person={leadAdvisor} /> for the advising, and other senior
-            collaborators and senior researchers for their insightful discussions,
-            including <InlinePeople people={advisors} linked />.
-          </p>
+          <p className="adv-note">We thank the faculty and senior researchers who advise and support this workshop.</p>
+          <p><InlinePeople people={advisors} linked /></p>
         </div>
         <div className="adv">
           <h3>Program Committee</h3>
           <p className="adv-note">We thank our program committee members from the NLP, HCI, and ML systems communities.</p>
-          <p><InlinePeople people={programCommittee} /></p>
+          <p><InlinePeople people={programCommittee} linked /></p>
         </div>
       </div>
     </section>

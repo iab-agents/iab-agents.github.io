@@ -607,6 +607,18 @@ section .lead {
 
 .lead-list li { margin-bottom: 0.3rem; }
 
+.eg-list {
+  margin: 0.35rem 0 0.7rem 1.1rem;
+  padding: 0;
+  list-style: disc;
+}
+
+.eg-list li {
+  margin-bottom: 0.15rem;
+  font-size: 0.92rem;
+  opacity: 0.85;
+}
+
 .cfp-formats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
