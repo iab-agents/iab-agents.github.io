@@ -17,39 +17,34 @@ export const topics = [
   {
     type: 'agents',
     label: 'Agents',
-    color: '#1d4ed8',
+    color: '#b04a2f',
     question: 'What do agents do, and how?',
     items: [
-      'Which behaviors recur at runtime, and which are new: planning, reasoning, calling tools, handling ambiguity and uncertainty, failing, and recovering?',
-      'What emergent behaviors appear in single- and multi-agent systems?',
-      'How does the choice of model or architecture shape behavior?',
-      'What types does this behavior fall into, and is it similar enough to human behavior that we can borrow methods from studying it?',
-      'How do we capture and reuse successful patterns?',
+      'What do agents actually do during a run, from planning and reasoning to using tools, failing, and recovering?',
+      'What new or emergent behaviors show up in single- and multi-agent systems?',
+      'How are these behaviors shaped, by the model, the prompt, the harness, the skills, or the overall agent design?',
     ],
   },
   {
     type: 'humans',
     label: 'Humans',
-    color: '#b45309',
-    question: 'What do people do in response, and how?',
+    color: '#a07d2a',
+    question: 'What do humans do in response, and how?',
     items: [
-      'What do people do when they work with agents: writing prompts, verifying outputs, over-relying, forming mental models, and monitoring ongoing execution?',
-      'What strategies do they use to adjust agent behavior mid-execution?',
-      'What types does this behavior fall into?',
-      'Is it similar to how they treat other people?',
+      'What do humans do while working with an agent, from writing prompts to verifying outputs and monitoring the run?',
+      'When should humans trust and rely on agents, and when should they not?',
+      'How do humans communicate intent, and step in to steer or correct an agent during runtime?',
     ],
   },
   {
     type: 'interaction',
     label: 'Interaction',
-    color: '#0f766e',
+    color: '#6a4b7a',
     question: 'What happens when humans and agents interact, and how?',
     items: [
-      'Which behaviors recur, which are new, and what role do people play?',
-      'How do users communicate intent and goals?',
-      'How are misunderstandings and breakdowns repaired?',
-      'What patterns emerge from interaction traces and logs, and how do they differ across tasks?',
-      'Are these interactions similar to how people work with other people?',
+      'What patterns emerge in interaction traces, and how do they differ across tasks?',
+      'How do humans and agents build a shared understanding of the goal, and where does it break down?',
+      'How do they recover from misunderstandings as the work goes on?',
     ],
   },
 ];
@@ -80,26 +75,61 @@ export const schedule = [
       'Kun Zhang',
       'Nancy F. Chen',
     ],
-    suffix: '—',
+    suffix: '·',
     meta: 'TBD',
   },
   { time: '17:30 – 18:00', title: 'Award Session: Best Paper Award + Closing Remarks' },
 ];
 
 export const cfpCategories = [
-  ['Datasets and Resources', 'anything that makes agent behavior available for others to study.', 'For example: human-agent conversational data, simulated behavior data, annotated interaction traces.'],
-  ['Empirical Studies', 'close readings of how agents actually behave in practice.', 'For example: error taxonomies, failure mode analysis, case studies of agent decisions.'],
-  ['Methods and Tools', 'approaches that help researchers make sense of what an agent did.', 'For example: qualitative coding frameworks, interaction visualization.'],
-  ['Human-Agent Interaction', 'how people direct agents, check their work, and come to trust or distrust them.', "For example: checking whether an agent's work is right, figuring out what the user really meant, redirecting an agent mid-task, recovering together after a mistake."],
+  {
+    name: 'Datasets and resources',
+    description: 'Data and resources for studying, debugging, and diagnosing agent behavior',
+    examples: [
+      'Agent trajectory data on specific tasks',
+      'Human-agent conversational data and dialogue logs',
+      'Simulated or synthetic behavior data',
+      'Annotated interaction traces and trajectory data',
+      'Schemas for representing agent trajectories',
+      'Benchmarks and evaluations on specific behaviors',
+      'Discussion and positions, e.g., on how we should represent agent trajectories, or on how benchmarks and metrics can fail to capture agent behavior',
+    ],
+  },
+  {
+    name: 'Empirical studies',
+    description: 'Studies on how agents and people actually behave at runtime.',
+    examples: [
+      'Interpretations that benchmarks and metrics cannot reveal, e.g., qualitative analysis of agent trajectories',
+      'Quantitative and computational analysis of agent behavior, e.g., statistical patterns, clustering, or process mining over trajectories',
+      'Observational studies of agent behavior, in general or focused on specific behaviors like sycophancy, deception, or anthropomorphism',
+      'Case studies of individual agent runs',
+      'Automated, large-scale analysis that surfaces behavioral patterns across many runs',
+      'Identification of emergent behavior in single- and multi-agent systems',
+      'Behavior comparisons across models, prompts, or architectures',
+      'Behavior taxonomies for describing what happened inside an agent run',
+      'How agents behave in downstream scenarios, e.g., deployment, debugging, and diagnosis',
+      'Studies of how people work with agents, e.g., observations, interviews, and surveys',
+    ],
+  },
+  {
+    name: 'Methods and tools',
+    description: 'Approaches that help people describe, interpret, and oversee what agents do',
+    examples: [
+      'Interaction and trajectory visualization tools that make agent behavior easier to understand',
+      'Human-centered theoretical perspectives on agent behavior, borrowing from disciplines such as social science, behavioral science',
+      'Theoretical vocabularies for describing what an agent does',
+      'Reusable behavior catalogs and qualitative coding codebooks for what an agent does',
+      'Grounded theory, thematic analysis, conversation analysis, and other qualitative methods applied to agent behavior',
+      'Automated methods for labeling, clustering, or summarizing agent behavior at scale, e.g., using LLM judges or embeddings',
+      'Metrics and probes that characterize agent behavior beyond task success',
+      'Discussion or position papers, e.g., on what cross-disciplinary methods we can use for human-centered interpretation of agent behaviors',
+    ],
+  },
+  
 ];
 
-export const specialTrack = {
-  heading: 'how should we represent an agent trajectory?',
-  body: 'We invite work on schemas for recording what an agent did, new ways to structure and share trajectory datasets, and formats that make agent behavior easier to read, compare, and analyze.',
-};
-
 export const submissionFormats = [
-  ['Long Papers', 'Up to 9 pages + references. For full empirical studies, datasets, benchmarks, or comprehensive analyses.'],
+  ['Long Papers', 'Up to 9 pages + references. For full empirical studies, datasets, or comprehensive analyses.'],
   ['Short Papers', 'Up to 4 pages + references. For position papers, tools, demos, preliminary findings, and negative results.'],
 ];
 
@@ -107,9 +137,9 @@ export const openReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Wo
 
 export const neuripsReviewTrack = {
   title: 'Submission with NeurIPS reviews',
-  intro: 'If your paper was reviewed at NeurIPS 2026, you can submit it here together with the reviews and your response. This is a second route into the workshop, alongside the regular submission above.',
+  intro: 'If your paper was reviewed at NeurIPS 2026, you can submit it here together with the reviews and your response. This is a second route into the workshop.',
   due: 'Due October 1, 2026, one week after NeurIPS decisions.',
-  body: 'The organizing team gives these papers a light review, so you can expect a decision within one or two weeks. Because the workshop is non-archival, presenting here does not affect where you send the paper next. We simply want to give the work a place to be read and discussed.',
+  body: 'The organizing team gives these papers a light review, so you can expect a decision within one or two weeks. Because the workshop is non-archival, presenting here does not affect where you send the paper elsewhere.',
 };
 
 export const submissionDeadline = '2026-08-30T11:59:59Z';
@@ -134,25 +164,24 @@ export const ethicsNote = {
   url: 'https://neurips.cc/Conferences/2026/MainTrackHandbook',
 };
 
-// Ziang Xiao is rendered as a card from the people repository; the rest of
-// the board stays as an inline list.
 export const advisors = [
+  ['Ziang Xiao', 'Johns Hopkins University', 'https://www.cs.jhu.edu/faculty/ziang-xiao/'],
   ['Toby Jia-Jun Li', 'Notre Dame', 'https://toby.li/'],
   ['Weiyan Shi', 'Northeastern', 'https://wyshi.github.io/'],
   ['Fan Bai', 'Bloomberg AI', 'https://bflashcp3f.github.io/'],
-  ['Hang Jiang', 'Northeastern', 'https://hjian42.github.io/'],
   ['Soufiane Hayou', 'JHU', 'https://www.soufianehayou.com/'],
+  ['Hang Jiang', 'Northeastern', 'https://hjian42.github.io/'],
   ['Samuel Nathanson', 'xAI', 'https://www.linkedin.com/in/nathanson/'],
 ];
 
 export const programCommittee = [
+  ['Boyang Li', 'Kean University', 'https://www.liboyang.org/'],
   ['Lin Zhang', 'JHU', 'https://zlin0.github.io/'],
-  ['Heyuan Huang', 'JHU'],
-  ['Arman Hatami', 'JHU'],
-  ['Yadi Cao', 'UC San Diego'],
-  ['Boyang Li', 'Kean University'],
-  ['Alyssa Columbus', 'JHU'],
+  ['Heyuan Huang', 'JHU', 'https://heyuan9.github.io/'],
+  ['Arman Hatami', 'JHU', 'https://armanhtm.github.io/'],
+  ['Yadi Cao', 'UC San Diego', 'https://eydcao.github.io/'],
+  ['Alyssa Columbus', 'JHU', 'https://alyssacolumbus.com/'],
   ['Han Jiang', 'JHU'],
-  ['Yifan Zhang', 'National University of Singapore'],
-  ['Huiqi Zou', 'Northeastern University'],
+  ['Yifan Zhang', 'National University of Singapore', 'https://yvonnefanf.github.io/index.html'],
+  ['Huiqi Zou', 'Northeastern University', 'https://annazou1103.github.io/'],
 ];
