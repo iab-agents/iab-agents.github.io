@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import logo from '../../img/iab-icon.svg';
+import neuripsLogo from '../../img/neurips-logo.svg';
+import FlameIcon from './FlameIcon';
 import { navLinks } from '../data/siteData';
 
 export default function Navigation() {
@@ -11,7 +13,7 @@ export default function Navigation() {
         <a className="nav-logo" href="#top" onClick={() => setIsOpen(false)}>
           <img className="logo-mark" src={logo} alt="" />
           IAB
-          <span>Workshop @ NeurIPS 2026</span>
+          <img className="neurips-mark" src={neuripsLogo} alt="Workshop at NeurIPS 2026" title="Workshop @ NeurIPS 2026" />
         </a>
         <button
           className={`nav-toggle${isOpen ? ' open' : ''}`}
@@ -26,8 +28,11 @@ export default function Navigation() {
           <span />
         </button>
         <div id="main-navigation-links" className={`nav-links${isOpen ? ' open' : ''}`}>
-          {navLinks.map(([label, id]) => (
-            <a key={id} href={`#${id}`} onClick={() => setIsOpen(false)}>{label}</a>
+          {navLinks.map(([label, id, hot]) => (
+            <a key={id} href={`#${id}`} className={hot ? 'hot' : undefined} onClick={() => setIsOpen(false)}>
+              {hot && <FlameIcon />}
+              {label}
+            </a>
           ))}
         </div>
       </div>

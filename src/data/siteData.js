@@ -1,11 +1,12 @@
+// A third element marks the link as hot; the nav renders a flame before the label.
 export const navLinks = [
   ['About', 'about'],
-  ['News', 'news'],
-  ['Scope', 'topics'],
-  ['Call for Papers', 'cfp'],
+  ['Call for Papers', 'cfp', true],
+  ['Competition', 'competition', true],
   ['Speakers', 'speakers'],
   ['Schedule', 'schedule'],
   ['Organizers', 'organizers'],
+  ['Sponsors', 'sponsors'],
 ];
 
 export const speakerSection = Object.freeze({
@@ -135,6 +136,8 @@ export const submissionFormats = [
 
 export const openReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/IAB';
 
+export const competitionUrl = 'https://glee-competition.com/';
+
 export const neuripsReviewTrack = {
   title: 'Submission with NeurIPS reviews',
   intro: 'If your paper was reviewed at NeurIPS 2026, you can submit it here together with the reviews and your response. This is a second route into the workshop.',
@@ -166,12 +169,20 @@ export const ethicsNote = {
 
 export const advisors = [
   ['Ziang Xiao', 'Johns Hopkins University', 'https://www.cs.jhu.edu/faculty/ziang-xiao/'],
+  ['Mark Dredze', 'Johns Hopkins University', 'https://www.cs.jhu.edu/~mdredze/'],
   ['Toby Jia-Jun Li', 'Notre Dame', 'https://toby.li/'],
   ['Weiyan Shi', 'Northeastern', 'https://wyshi.github.io/'],
   ['Fan Bai', 'Bloomberg AI', 'https://bflashcp3f.github.io/'],
   ['Soufiane Hayou', 'JHU', 'https://www.soufianehayou.com/'],
   ['Hang Jiang', 'Northeastern', 'https://hjian42.github.io/'],
   ['Samuel Nathanson', 'xAI', 'https://www.linkedin.com/in/nathanson/'],
+];
+
+export const competitionTeam = [
+  ['Eilam Shapira', 'Technion', 'https://eilamshapira.com/'],
+  ['Omer Madmon', 'Technion', 'https://sites.google.com/view/omer-madmon'],
+  ['Moshe Tennenholtz', 'Technion', 'https://moshet.net.technion.ac.il/'],
+  ['Roi Reichart', 'Technion', 'https://roireichart.com/'],
 ];
 
 export const programCommittee = [
