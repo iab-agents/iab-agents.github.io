@@ -1,5 +1,8 @@
 import { Fragment, useEffect, useState } from 'react';
+import abakaLogo from '../img/abaka-logo.svg';
+import contraLabsLogo from '../img/contra-labs.png';
 import heroImage from '../img/hero.png';
+import FlameIcon from './components/FlameIcon';
 import Navigation from './components/Navigation';
 import PersonCard from './components/PersonCard';
 import TopicIcon from './components/TopicIcon';
@@ -7,6 +10,8 @@ import { getPeopleByRole, PERSON_ROLE } from './data/peopleRepository';
 import {
   advisors,
   cfpCategories,
+  competitionTeam,
+  competitionUrl,
   ethicsNote,
   importantDates,
   neuripsReviewTrack,
@@ -38,8 +43,20 @@ function Hero() {
           <span className="venue-divider" aria-hidden="true">·</span>
           <span className="venue-location venue-location--full">International Convention Centre, Sydney, Australia</span>
           <span className="venue-location venue-location--short">ICC Sydney, Australia</span>
+          <span className="venue-divider" aria-hidden="true">·</span>
           <span className="venue-date">December 11–12, 2026</span>
         </div>
+        <div className="hero-actions">
+          <a className="hero-btn hero-btn--primary" href="#cfp">
+            <FlameIcon />
+            Call for Papers
+          </a>
+          <a className="hero-btn" href="#competition">
+            <FlameIcon />
+            Join IAB × Glee Competition
+          </a>
+        </div>
+        <Countdown variant="hero" />
       </div>
     </header>
   );
@@ -217,7 +234,6 @@ function CallForPapers() {
         </div>
 
         <h3 className="cfp-heading">Important Dates</h3>
-        <Countdown />
         <table className="dates-table">
           <tbody>
             {importantDates.map(({ label, value, key }) => (
@@ -234,6 +250,8 @@ function CallForPapers() {
           {ethicsNote.body}{' '}
           <a href={ethicsNote.url} target="_blank" rel="noopener noreferrer">{ethicsNote.linkText}</a> for details.
         </p>
+
+        <p className="lead cfp-note">Travel grants/paper awards will be available.</p>
       </div>
     </section>
   );
@@ -253,8 +271,9 @@ function timeLeft(deadline) {
   };
 }
 
-function Countdown() {
+function Countdown({ variant }) {
   const [left, setLeft] = useState(() => timeLeft(submissionDeadline));
+  const className = `countdown${variant === 'hero' ? ' countdown--hero' : ''}`;
 
   useEffect(() => {
     const timer = setInterval(() => setLeft(timeLeft(submissionDeadline)), 1000);
@@ -263,15 +282,15 @@ function Countdown() {
 
   if (!left) {
     return (
-      <div className="countdown">
+      <div className={className}>
         <div className="cd-label">Submissions are closed<strong>The deadline has passed.</strong></div>
       </div>
     );
   }
 
   return (
-    <div className="countdown">
-      <div className="cd-label">Submission deadline in<strong>{submissionDeadlineLabel}</strong></div>
+    <div className={className}>
+      <div className="cd-label">Paper submission deadline<strong>{submissionDeadlineLabel}</strong></div>
       <div className="cd-units">
         {[['Days', left.days], ['Hours', left.hours], ['Minutes', left.minutes], ['Seconds', left.seconds]].map(([unit, value]) => (
           <div className="cd-unit" key={unit}>
@@ -284,13 +303,31 @@ function Countdown() {
   );
 }
 
-function InlinePeople({ people, linked = false }) {
-  return people.map(([name, affiliation, url], index) => (
-    <span key={name}>
-      {linked && url ? <a href={url} target="_blank" rel="noopener noreferrer">{name}</a> : name} ({affiliation})
-      {index < people.length - 1 && <span aria-hidden="true"> · </span>}
-    </span>
-  ));
+function Competition() {
+  return (
+    <section id="competition">
+      <div className="container">
+        <h2>Competition</h2>
+        <p className="lead">We are preparing a community competition on interpreting agent behavior. Reports written by competition participants can be selected for presentation at the workshop. We will shortly update here on how to attend and how to present it in our workshop. Currently at a glance:</p>
+        <p className="lead"><a href={competitionUrl} target="_blank" rel="noopener noreferrer">{competitionUrl}</a></p>
+      </div>
+    </section>
+  );
+}
+
+function PeopleList({ people, linked = false }) {
+  return (
+    <ul className="people-list">
+      {people.map(([name, affiliation, url]) => (
+        <li key={name}>
+          <span className="pl-name">
+            {linked && url ? <a href={url} target="_blank" rel="noopener noreferrer">{name}</a> : name}
+          </span>
+          <span className="pl-affil">{affiliation}</span>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 function Organizers() {
@@ -304,12 +341,17 @@ function Organizers() {
         <div className="adv">
           <h3>Advisory Board</h3>
           <p className="adv-note">We thank the faculty and senior researchers who advise and support this workshop.</p>
-          <p><InlinePeople people={advisors} linked /></p>
+          <PeopleList people={advisors} linked />
+        </div>
+        <div className="adv">
+          <h3>Competition Organization Team</h3>
+          <p className="adv-note">We thank our team members who help us run the competition.</p>
+          {competitionTeam.length ? <PeopleList people={competitionTeam} linked /> : <p>To be announced</p>}
         </div>
         <div className="adv">
           <h3>Program Committee</h3>
           <p className="adv-note">We thank our program committee members from the NLP, HCI, and ML systems communities.</p>
-          <p><InlinePeople people={programCommittee} linked /></p>
+          <PeopleList people={programCommittee} linked />
         </div>
       </div>
     </section>
@@ -321,7 +363,15 @@ function Sponsors() {
     <section id="sponsors">
       <div className="container">
         <h2>Sponsors</h2>
-        <p className="muted-note">To be announced</p>
+        <p className="lead">We thank our sponsors for supporting the workshop.</p>
+        <div className="sponsor-grid">
+          <a className="sponsor-card" href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">
+            <img src={abakaLogo} alt="Abaka AI" />
+          </a>
+          <a className="sponsor-card" href="https://contralabs.com/creative-human-data" target="_blank" rel="noopener noreferrer">
+            <img className="sponsor-logo--wordmark" src={contraLabsLogo} alt="Contra Labs" />
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -348,6 +398,7 @@ export default function App() {
         <News />
         <Scope />
         <CallForPapers />
+        <Competition />
         <Speakers />
         <Schedule />
         <Organizers />
