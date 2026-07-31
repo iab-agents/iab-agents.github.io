@@ -1,7 +1,9 @@
 import { Fragment, useEffect, useState } from 'react';
 import abakaLogo from '../img/abaka-logo.svg';
 import contraLabsLogo from '../img/contra-labs.png';
+import googleLogo from '../img/google.png';
 import heroImage from '../img/hero.png';
+import salesforceLogo from '../img/Salesforce-Logo.png';
 import FlameIcon from './components/FlameIcon';
 import Navigation from './components/Navigation';
 import PersonCard from './components/PersonCard';
@@ -104,6 +106,14 @@ function News() {
       <div className="container">
         <h2>News</h2>
         <ul className="news-list">
+          <li>
+            <span className="date">Jul 31, 2026</span>
+            <span>We're happy to announce the <a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE competition</a>, sponsored by <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google</a> and <a href="https://www.salesforce.com/" target="_blank" rel="noopener noreferrer">Salesforce</a>, with a $6,000 prize pool and a dedicated Best Competition Paper Award!</span>
+          </li>
+          <li>
+            <span className="date">Jul 31, 2026</span>
+            <span>Happy to announce <a href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">Abaka AI</a> and <a href="https://contralabs.com/creative-human-data" target="_blank" rel="noopener noreferrer">Contra Labs</a> as sponsors of the workshop!</span>
+          </li>
           <li>
             <span className="date">Jul 22, 2026</span>
             <span>Call for Papers is out. Submission site <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a> is open.</span>
@@ -307,9 +317,11 @@ function Competition() {
   return (
     <section id="competition">
       <div className="container">
-        <h2>Competition</h2>
-        <p className="lead">We are preparing a community competition on interpreting agent behavior. Reports written by competition participants can be selected for presentation at the workshop. We will shortly update here on how to attend and how to present it in our workshop. Currently at a glance:</p>
-        <p className="lead"><a href={competitionUrl} target="_blank" rel="noopener noreferrer">{competitionUrl}</a></p>
+        <h2>Competition &amp; Call for Competition Papers</h2>
+        <p className="lead">GLEE (Games in Language-based Economic Environments) is the official competition of the IAB Workshop at NeurIPS 2026. It evaluates AI agents in multi-turn bargaining, negotiation, and persuasion games, where success requires natural-language communication, strategic reasoning, adaptation to other players, and effective economic decision-making.</p>
+        <p className="lead">Participants can build an autonomous agent that plays live through the GLEE API, or compete in the human track directly through the web interface. Agents and humans play online in a shared pool from August 1–29, 2026 (AoE), with a total prize pool of $6,000: $5,000 for the agent track and $1,000 for the human track.</p>
+        <p className="lead">Participants may also submit a <strong>four-page competition paper</strong> describing their agent, approach, and findings. Accepted papers will be presented at the IAB Workshop at NeurIPS 2026, with a dedicated <strong>poster session</strong> and a <strong>Best Competition Paper Award</strong>.</p>
+        <p className="lead">Please see more information here: <a href={competitionUrl} target="_blank" rel="noopener noreferrer">{competitionUrl}</a></p>
       </div>
     </section>
   );
@@ -344,7 +356,7 @@ function Organizers() {
           <PeopleList people={advisors} linked />
         </div>
         <div className="adv">
-          <h3>Competition Organization Team</h3>
+          <h3>Competition Organizing Team</h3>
           <p className="adv-note">We thank our team members who help us run the competition.</p>
           {competitionTeam.length ? <PeopleList people={competitionTeam} linked /> : <p>To be announced</p>}
         </div>
@@ -365,12 +377,24 @@ function Sponsors() {
         <h2>Sponsors</h2>
         <p className="lead">We thank our sponsors for supporting the workshop.</p>
         <div className="sponsor-grid">
-          <a className="sponsor-card" href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">
-            <img src={abakaLogo} alt="Abaka AI" />
+          <a className="sponsor-card sponsor-card--plain" href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">
+            <img className="sponsor-logo--large" src={abakaLogo} alt="Abaka AI" />
           </a>
-          <a className="sponsor-card" href="https://contralabs.com/creative-human-data" target="_blank" rel="noopener noreferrer">
+          <a className="sponsor-card sponsor-card--plain" href="https://contralabs.com/creative-human-data" target="_blank" rel="noopener noreferrer">
             <img className="sponsor-logo--wordmark" src={contraLabsLogo} alt="Contra Labs" />
           </a>
+        </div>
+        <div className="adv adv-plain">
+          <h3>Competition Sponsors</h3>
+          <p className="adv-note">We thank our GLEE competition sponsors.</p>
+          <div className="sponsor-grid">
+            <a className="sponsor-card sponsor-card--plain" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
+              <img className="sponsor-logo--xlarge" src={googleLogo} alt="Google" />
+            </a>
+            <a className="sponsor-card sponsor-card--plain" href="https://www.salesforce.com/" target="_blank" rel="noopener noreferrer">
+              <img className="sponsor-logo--xlarge" src={salesforceLogo} alt="Salesforce" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
