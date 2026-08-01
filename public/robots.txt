@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iab-agents.github.io/sitemap.xml
