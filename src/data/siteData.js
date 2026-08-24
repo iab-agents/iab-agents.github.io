@@ -172,29 +172,30 @@ export const ethicsNote = {
 export const advisors = [
   ['Ziang Xiao', 'Johns Hopkins University', 'https://www.cs.jhu.edu/faculty/ziang-xiao/'],
   ['Mark Dredze', 'Johns Hopkins University', 'https://www.cs.jhu.edu/~mdredze/'],
-  ['Toby Jia-Jun Li', 'Notre Dame', 'https://toby.li/'],
-  ['Weiyan Shi', 'Northeastern', 'https://wyshi.github.io/'],
+  ['Toby Jia-Jun Li', 'University of Notre Dame', 'https://toby.li/'],
+  ['Weiyan Shi', 'Northeastern University', 'https://wyshi.github.io/'],
   ['Fan Bai', 'Bloomberg AI', 'https://bflashcp3f.github.io/'],
-  ['Soufiane Hayou', 'JHU', 'https://www.soufianehayou.com/'],
-  ['Hang Jiang', 'Northeastern', 'https://hjian42.github.io/'],
+  ['Soufiane Hayou', 'Johns Hopkins University', 'https://www.soufianehayou.com/'],
+  ['Hang Jiang', 'Northeastern University', 'https://hjian42.github.io/'],
   ['Samuel Nathanson', 'xAI', 'https://www.linkedin.com/in/nathanson/'],
+  ['Wei Lu', 'Nanyang Technological University', 'https://dr.ntu.edu.sg/entities/person/Wei-Lu'],
 ];
 
 export const competitionTeam = [
-  ['Eilam Shapira', 'Technion', 'https://eilamshapira.com/'],
-  ['Omer Madmon', 'Technion', 'https://sites.google.com/view/omer-madmon'],
-  ['Moshe Tennenholtz', 'Technion', 'https://moshet.net.technion.ac.il/'],
-  ['Roi Reichart', 'Technion', 'https://roireichart.com/'],
+  ['Eilam Shapira', 'Technion – Israel Institute of Technology', 'https://eilamshapira.com/'],
+  ['Omer Madmon', 'Technion – Israel Institute of Technology', 'https://sites.google.com/view/omer-madmon'],
+  ['Moshe Tennenholtz', 'Technion – Israel Institute of Technology', 'https://moshet.net.technion.ac.il/'],
+  ['Roi Reichart', 'Technion – Israel Institute of Technology', 'https://roireichart.com/'],
 ];
 
 export const programCommittee = [
   ['Boyang Li', 'Kean University', 'https://www.liboyang.org/'],
-  ['Lin Zhang', 'JHU', 'https://zlin0.github.io/'],
-  ['Heyuan Huang', 'JHU', 'https://heyuan9.github.io/'],
-  ['Arman Hatami', 'JHU', 'https://armanhtm.github.io/'],
-  ['Yadi Cao', 'UC San Diego', 'https://eydcao.github.io/'],
-  ['Alyssa Columbus', 'JHU', 'https://alyssacolumbus.com/'],
-  ['Han Jiang', 'JHU'],
+  ['Lin Zhang', 'Johns Hopkins University', 'https://zlin0.github.io/'],
+  ['Heyuan Huang', 'Johns Hopkins University', 'https://heyuan9.github.io/'],
+  ['Arman Hatami', 'Johns Hopkins University', 'https://armanhtm.github.io/'],
+  ['Yadi Cao', 'University of California, San Diego', 'https://eydcao.github.io/'],
+  ['Alyssa Columbus', 'Johns Hopkins University', 'https://alyssacolumbus.com/'],
+  ['Han Jiang', 'Johns Hopkins University'],
   ['Yifan Zhang', 'National University of Singapore', 'https://yvonnefanf.github.io/index.html'],
   ['Huiqi Zou', 'Northeastern University', 'https://annazou1103.github.io/'],
 ];

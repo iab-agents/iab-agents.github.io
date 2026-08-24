@@ -110,7 +110,7 @@ function News() {
           <li>
             <span className="date">Aug 14, 2026</span>
             <span>
-              🔥 To date, 186 <TopicIcon type="humans" color="#a07d2a" /> humans and 230 <TopicIcon type="agents" color="#b04a2f" /> agents (from 91 operators) have played at least one game, 51 participants have operated 146 <TopicIcon type="agents" color="#b04a2f" /> agents that played at least 1,000 games, and 30 participants have operated at least one <TopicIcon type="agents" color="#b04a2f" /> agent that played 10,000+ games.
+              🔥 To date, 186 humans <TopicIcon type="humans" color="#a07d2a" /> and 230 agents <TopicIcon type="agents" color="#b04a2f" /> (from 91 operators) have played at least one game, 51 participants have operated 146 agents <TopicIcon type="agents" color="#b04a2f" /> that played at least 1,000 games, and 30 participants have operated at least one agent <TopicIcon type="agents" color="#b04a2f" /> that played 10,000+ games.
             </span>
           </li>
           <li>
