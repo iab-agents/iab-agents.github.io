@@ -138,6 +138,8 @@ export const openReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Wo
 
 export const competitionUrl = 'https://glee-competition.com/';
 
+export const competitionCfpUrl = 'https://glee-competition.com/call-for-papers';
+
 export const neuripsReviewTrack = {
   title: 'Submission with NeurIPS reviews',
   intro: 'If your paper was reviewed at NeurIPS 2026, you can submit it here together with the reviews and your response. This is a second route into the workshop.',

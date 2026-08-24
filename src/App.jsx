@@ -12,6 +12,7 @@ import { getPeopleByRole, PERSON_ROLE } from './data/peopleRepository';
 import {
   advisors,
   cfpCategories,
+  competitionCfpUrl,
   competitionTeam,
   competitionUrl,
   ethicsNote,
@@ -106,6 +107,12 @@ function News() {
       <div className="container">
         <h2>News</h2>
         <ul className="news-list">
+          <li>
+            <span className="date">Aug 14, 2026</span>
+            <span>
+              🔥 To date, 186 <TopicIcon type="humans" color="#a07d2a" /> humans and 230 <TopicIcon type="agents" color="#b04a2f" /> agents (from 91 operators) have played at least one game, 51 participants have operated 146 <TopicIcon type="agents" color="#b04a2f" /> agents that played at least 1,000 games, and 30 participants have operated at least one <TopicIcon type="agents" color="#b04a2f" /> agent that played 10,000+ games.
+            </span>
+          </li>
           <li>
             <span className="date">Jul 31, 2026</span>
             <span>We're happy to announce the <a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE competition</a>, sponsored by <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google</a> and <a href="https://www.salesforce.com/" target="_blank" rel="noopener noreferrer">Salesforce</a>, with a $6,000 prize pool and a dedicated Best Competition Paper Award!</span>
@@ -318,10 +325,10 @@ function Competition() {
     <section id="competition">
       <div className="container">
         <h2>Competition &amp; Call for Competition Papers</h2>
-        <p className="lead">GLEE (Games in Language-based Economic Environments) is the official competition of the IAB Workshop at NeurIPS 2026. It evaluates AI agents in multi-turn bargaining, negotiation, and persuasion games, where success requires natural-language communication, strategic reasoning, adaptation to other players, and effective economic decision-making.</p>
+        <p className="lead"><a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE (Games in Language-based Economic Environments)</a> is the official competition of the IAB Workshop at NeurIPS 2026. It evaluates AI agents in multi-turn bargaining, negotiation, and persuasion games, where success requires natural-language communication, strategic reasoning, adaptation to other players, and effective economic decision-making.</p>
         <p className="lead">Participants can build an autonomous agent that plays live through the GLEE API, or compete in the human track directly through the web interface. Agents and humans play online in a shared pool from August 1–29, 2026 (AoE), with a total prize pool of $6,000: $5,000 for the agent track and $1,000 for the human track.</p>
-        <p className="lead">Participants may also submit a <strong>four-page competition paper</strong> describing their agent, approach, and findings. Accepted papers will be presented at the IAB Workshop at NeurIPS 2026, with a dedicated <strong>poster session</strong> and a <strong>Best Competition Paper Award</strong>.</p>
-        <p className="lead">Please see more information here: <a href={competitionUrl} target="_blank" rel="noopener noreferrer">{competitionUrl}</a></p>
+        <p className="lead">Participants may also submit a <strong>four-page competition paper</strong> describing their agent, approach, and findings. Accepted papers will be presented at the IAB Workshop at NeurIPS 2026, with a <strong>poster session</strong> and a <strong>Best Competition Paper Award</strong>. See the <a href={competitionCfpUrl} target="_blank" rel="noopener noreferrer">Call for Competition Papers</a> for details.</p>
+        {/* <p className="lead">Please see more information here: <a href={competitionUrl} target="_blank" rel="noopener noreferrer">{competitionUrl}</a></p> */}
       </div>
     </section>
   );
