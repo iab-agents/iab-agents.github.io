@@ -13,11 +13,13 @@ import {
   advisors,
   cfpCategories,
   competitionCfpUrl,
+  competitionOpenReviewUrl,
   competitionTeam,
   competitionUrl,
   ethicsNote,
   importantDates,
   neuripsReviewTrack,
+  paperAwards,
   openReviewUrl,
   programCommittee,
   schedule,
@@ -82,7 +84,7 @@ function About() {
         </div>
         <div className="about-content">
           <p>
-            Commercial autonomous agents such as Claude and Codex now run for hours or even days to complete tasks, and along the way they show complex behavior: they plan, reason, use tools, recover from errors, coordinate with subagents, and communicate with users. We use the word <em>behavior</em>, as in the study of human behavior, for the full range of what an agent does during runtime. This behavior spans <span className="uline">three levels: what agents do and how they do it, what humans do in response, and how the two work together</span> through instructions and corrections. All three generate vast behavioral data such as execution logs and interaction traces. Yet existing approaches read this data largely for outcomes: benchmarks tell us <em>whether</em> an agent succeeds or fails, <span className="uline">but not <em>what</em> it did or <em>how</em> it did it</span>.
+            Commercial autonomous agents such as Claude and Codex now run for hours or even days to complete tasks, and along the way they plan, reason, use tools, recover from errors, coordinate with subagents, and communicate with users. We use the word <em>behavior</em>, as in the study of human behavior, for everything that happens during a run, across <span className="uline">three levels: what agents do and how they do it, what humans do in response, and how the two work together</span> through instructions and corrections. All three leave rich data behind, such as execution logs and interaction traces. Yet this data is read mostly for outcomes: benchmarks tell us <em>whether</em> an agent succeeds, <span className="uline">but not <em>what</em> it did or <em>how</em> it did it</span>.
           </p>
           <p>
             Understanding <em>what</em> and <em>how</em> is what people actually need. It lets agent developers and model trainers debug failures, compare architectures, and filter training data; it lets agent users and deployment engineers watch production agents to understand safety, cost, and reliability risks. For agentic models, the trajectory is both the training data and what the reward scores. Interpreting it therefore sits inside the training loop, deciding which rollouts are safe to reinforce and flagging reward that reflects a verifier exploit rather than real skill. But the field still <span className="uline">lacks the vocabulary, methods, and tools to describe and analyze agent behavior at scale</span>. Humans cannot read through thousands of log entries; they need patterns, summaries, and explanations, in other words <span className="uline"><em>interpretation</em></span>, and we do not yet know how to scale it.
@@ -111,7 +113,7 @@ function News() {
           <li>
             <span className="date">Aug 27, 2026</span>
             <span>
-              ⏰ The paper submission deadline is extended to <strong>{submissionDeadlineLabel}</strong>. Submit on <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>.
+              ⏰ To give authors more time to prepare, we have extended the paper submission deadline to <strong>{submissionDeadlineLabel}</strong>. Submit on <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>.
             </span>
           </li>
           <li>
@@ -275,7 +277,18 @@ function CallForPapers() {
           <a href={ethicsNote.url} target="_blank" rel="noopener noreferrer">{ethicsNote.linkText}</a> for details.
         </p>
 
-        <p className="lead cfp-note">Travel grants/paper awards will be available.</p>
+        <h3 className="cfp-heading">Awards</h3>
+        <p className="lead">With our sponsors' support, we will present four awards at the workshop:</p>
+        <table className="dates-table">
+          <tbody>
+            {paperAwards.map(([label, prize]) => (
+              <tr key={label}>
+                <td>{label}</td>
+                <td>{prize}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </section>
   );
@@ -334,10 +347,10 @@ function Competition() {
         <h2>Competition &amp; Call for Competition Papers</h2>
         <p className="lead"><a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE (Games in Language-based Economic Environments)</a> is the official competition of the IAB Workshop at NeurIPS 2026. It evaluates AI agents in multi-turn bargaining, negotiation, and persuasion games, where success requires natural-language communication, strategic reasoning, adaptation to other players, and effective economic decision-making.</p>
         <p className="lead">Participants can build an autonomous agent that plays live through the GLEE API, or compete in the human track directly through the web interface. Agents and humans play online in a shared pool from August 1–29, 2026 (AoE), with a total prize pool of $6,000: $5,000 for the agent track and $1,000 for the human track.</p>
-        <p className="lead">Participants may also submit a <strong>four-page competition paper</strong> describing their agent, approach, and findings. Accepted papers will be presented at the IAB Workshop at NeurIPS 2026, with a <strong>poster session</strong> and a <strong>Best Competition Paper Award</strong>. See the <a href={competitionCfpUrl} target="_blank" rel="noopener noreferrer">Call for Competition Papers</a> for details.</p>
+        <p className="lead">Participants may also submit a <strong>four-page competition paper</strong> describing their agent, approach, and findings. Accepted papers will be presented at the IAB Workshop at NeurIPS 2026, with a <strong>poster session</strong> and a <strong>Best Competition Paper Award</strong>. See the <a href={competitionCfpUrl} target="_blank" rel="noopener noreferrer">Call for Competition Papers</a> for details, and submit through the <a href={competitionOpenReviewUrl} target="_blank" rel="noopener noreferrer">Competition Paper Track on OpenReview</a>.</p>
         <div className="special-track">
           <h4>Required section: <span className="st-hl">Agent Behavior Analysis</span></h4>
-          <p>We require every competition paper to include an Agent Behavior Analysis section. Report how your agent actually behaved across the games it played, whether that behavior matches what you designed it to do, and how you made sure of that alignment. This section is what connects the competition back to the question the workshop asks: what agents do in practice, not only how well they score.</p>
+          <p>We require every competition paper to include an Agent Behavior Analysis section. Report how your agent actually behaved across the games it played, whether that behavior matches what you designed it to do, and how you made sure of that alignment.</p>
         </div>
         {/* <p className="lead">Please see more information here: <a href={competitionUrl} target="_blank" rel="noopener noreferrer">{competitionUrl}</a></p> */}
       </div>

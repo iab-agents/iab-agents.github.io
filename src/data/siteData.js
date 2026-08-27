@@ -130,8 +130,8 @@ export const cfpCategories = [
 ];
 
 export const submissionFormats = [
-  ['Long Papers', 'Up to 9 pages + references. For full empirical studies, datasets, or comprehensive analyses.'],
-  ['Short Papers', 'Up to 4 pages + references. For position papers, tools, demos, preliminary findings, and negative results.'],
+  ['Long Papers', 'Up to 9 pages + references + unlimited appendix. For full empirical studies, datasets, or comprehensive analyses.'],
+  ['Short Papers', 'Up to 4 pages + references + unlimited appendix. For position papers, tools, demos, preliminary findings, and negative results.'],
 ];
 
 export const openReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/IAB';
@@ -139,6 +139,8 @@ export const openReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Wo
 export const competitionUrl = 'https://glee-competition.com/';
 
 export const competitionCfpUrl = 'https://glee-competition.com/call-for-papers';
+
+export const competitionOpenReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/IAB_Competition_Paper_Track';
 
 export const neuripsReviewTrack = {
   title: 'Submission with NeurIPS reviews',
@@ -151,6 +153,13 @@ export const submissionDeadline = '2026-09-06T11:59:59Z';
 export const submissionDeadlineLabel = 'September 5, 2026 · midnight AoE';
 // Shown struck through next to the current deadline, so the extension is visible.
 export const submissionDeadlineWas = 'August 29, 2026';
+
+export const paperAwards = [
+  ['Best Paper Award', 'Certificate + $500'],
+  ['Best Paper Honorable Mention', 'Certificate + $200'],
+  ['Best Student Paper Award', 'Certificate + $500'],
+  ['Best Competition Paper Award', 'Certificate + $500'],
+];
 
 // `key: true` highlights the row in the dates table.
 export const importantDates = [
