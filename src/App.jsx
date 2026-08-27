@@ -24,6 +24,7 @@ import {
   speakerSection,
   submissionDeadline,
   submissionDeadlineLabel,
+  submissionDeadlineWas,
   submissionFormats,
   topics,
 } from './data/siteData';
@@ -56,7 +57,7 @@ function Hero() {
           </a>
           <a className="hero-btn" href="#competition">
             <FlameIcon />
-            Join IAB × Glee Competition
+            Call for Competition Papers
           </a>
         </div>
         <Countdown variant="hero" />
@@ -108,9 +109,15 @@ function News() {
         <h2>News</h2>
         <ul className="news-list">
           <li>
+            <span className="date">Aug 27, 2026</span>
+            <span>
+              ⏰ The paper submission deadline is extended to <strong>{submissionDeadlineLabel}</strong>. Submit on <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>.
+            </span>
+          </li>
+          <li>
             <span className="date">Aug 14, 2026</span>
             <span>
-              🔥 To date, 186 humans <TopicIcon type="humans" color="#a07d2a" /> and 230 agents <TopicIcon type="agents" color="#b04a2f" /> (from 91 operators) have played at least one game, 51 participants have operated 146 agents <TopicIcon type="agents" color="#b04a2f" /> that played at least 1,000 games, and 30 participants have operated at least one agent <TopicIcon type="agents" color="#b04a2f" /> that played 10,000+ games.
+              🔥 <a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE competition</a> update: so far, 186 humans <TopicIcon type="humans" color="#a07d2a" /> and 230 agents <TopicIcon type="agents" color="#b04a2f" /> (from 91 operators) have played at least one game, 51 participants have operated 146 agents <TopicIcon type="agents" color="#b04a2f" /> that played at least 1,000 games, and 30 participants have operated at least one agent <TopicIcon type="agents" color="#b04a2f" /> that played 10,000+ games.
             </span>
           </li>
           <li>
@@ -253,10 +260,10 @@ function CallForPapers() {
         <h3 className="cfp-heading">Important Dates</h3>
         <table className="dates-table">
           <tbody>
-            {importantDates.map(({ label, value, key }) => (
+            {importantDates.map(({ label, value, was, key }) => (
               <tr key={label} className={key ? 'key' : undefined}>
                 <td>{label}</td>
-                <td>{value}</td>
+                <td>{was && <s className="date-was">{was}</s>}{was && ' '}{value}</td>
               </tr>
             ))}
           </tbody>
@@ -307,7 +314,7 @@ function Countdown({ variant }) {
 
   return (
     <div className={className}>
-      <div className="cd-label">Paper submission deadline<strong>{submissionDeadlineLabel}</strong></div>
+      <div className="cd-label">Paper submission deadline<strong><s className="date-was">{submissionDeadlineWas}</s> {submissionDeadlineLabel}</strong></div>
       <div className="cd-units">
         {[['Days', left.days], ['Hours', left.hours], ['Minutes', left.minutes], ['Seconds', left.seconds]].map(([unit, value]) => (
           <div className="cd-unit" key={unit}>
@@ -328,6 +335,10 @@ function Competition() {
         <p className="lead"><a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE (Games in Language-based Economic Environments)</a> is the official competition of the IAB Workshop at NeurIPS 2026. It evaluates AI agents in multi-turn bargaining, negotiation, and persuasion games, where success requires natural-language communication, strategic reasoning, adaptation to other players, and effective economic decision-making.</p>
         <p className="lead">Participants can build an autonomous agent that plays live through the GLEE API, or compete in the human track directly through the web interface. Agents and humans play online in a shared pool from August 1–29, 2026 (AoE), with a total prize pool of $6,000: $5,000 for the agent track and $1,000 for the human track.</p>
         <p className="lead">Participants may also submit a <strong>four-page competition paper</strong> describing their agent, approach, and findings. Accepted papers will be presented at the IAB Workshop at NeurIPS 2026, with a <strong>poster session</strong> and a <strong>Best Competition Paper Award</strong>. See the <a href={competitionCfpUrl} target="_blank" rel="noopener noreferrer">Call for Competition Papers</a> for details.</p>
+        <div className="special-track">
+          <h4>Required section: <span className="st-hl">Agent Behavior Analysis</span></h4>
+          <p>We require every competition paper to include an Agent Behavior Analysis section. Report how your agent actually behaved across the games it played, whether that behavior matches what you designed it to do, and how you made sure of that alignment. This section is what connects the competition back to the question the workshop asks: what agents do in practice, not only how well they score.</p>
+        </div>
         {/* <p className="lead">Please see more information here: <a href={competitionUrl} target="_blank" rel="noopener noreferrer">{competitionUrl}</a></p> */}
       </div>
     </section>
