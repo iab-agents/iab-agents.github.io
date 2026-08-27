@@ -307,12 +307,13 @@ section .lead {
   display: none;
 }
 
+/* Stacked: the competition call sits under the main Call for Papers. */
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 1.5rem;
-  gap: 0.85rem;
+  gap: 0.7rem;
 }
 
 .hero-btn {
@@ -760,8 +761,10 @@ section .lead {
 
 .special-track {
   margin: 0 0 1.6rem;
-  padding: 0.1rem 0 0.1rem 1.5rem;
-  border-left: 3px solid var(--accent);
+  padding: 1.1rem 1.4rem 1.1rem 1.5rem;
+  border-left: 3px solid var(--blue);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: #f3f6fd;
 }
 
 .special-track h4 {
@@ -810,6 +813,8 @@ section .lead {
 }
 
 .countdown .cd-label {
+  min-width: 0;
+  max-width: 100%;
   color: var(--text-secondary);
   font-size: 0.68rem;
   font-weight: 700;
@@ -825,6 +830,17 @@ section .lead {
   font-weight: 700;
   text-transform: none;
   letter-spacing: 0;
+}
+
+/* Struck-through superseded date, next to the current one. */
+.date-was {
+  color: var(--text-secondary);
+  font-weight: 500;
+  opacity: 0.65;
+}
+
+.countdown--hero .cd-label strong .date-was {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .cd-units {
@@ -1149,6 +1165,8 @@ footer p + p { margin-top: 0.3rem; }
 
 @media (max-width: 560px) {
   .container { padding: 0 1rem; }
+  /* Too narrow for both dates on one line, so stack the superseded one. */
+  .countdown--hero .cd-label strong .date-was { display: block; }
   .nav { padding: 0.65rem 0; }
   .nav-logo .neurips-mark { width: auto; height: 26px; margin-left: 5px; padding-left: 7px; }
   .nav-logo .logo-mark { width: 28px; height: 28px; }

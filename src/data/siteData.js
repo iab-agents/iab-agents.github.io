@@ -130,8 +130,8 @@ export const cfpCategories = [
 ];
 
 export const submissionFormats = [
-  ['Long Papers', 'Up to 9 pages + references. For full empirical studies, datasets, or comprehensive analyses.'],
-  ['Short Papers', 'Up to 4 pages + references. For position papers, tools, demos, preliminary findings, and negative results.'],
+  ['Long Papers', 'Up to 9 pages + references + unlimited appendix. For full empirical studies, datasets, or comprehensive analyses.'],
+  ['Short Papers', 'Up to 4 pages + references + unlimited appendix. For position papers, tools, demos, preliminary findings, and negative results.'],
 ];
 
 export const openReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/IAB';
@@ -140,6 +140,8 @@ export const competitionUrl = 'https://glee-competition.com/';
 
 export const competitionCfpUrl = 'https://glee-competition.com/call-for-papers';
 
+export const competitionOpenReviewUrl = 'https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/IAB_Competition_Paper_Track';
+
 export const neuripsReviewTrack = {
   title: 'Submission with NeurIPS reviews',
   intro: 'If your paper was reviewed at NeurIPS 2026, you can submit it here together with the reviews and your response. This is a second route into the workshop.',
@@ -147,13 +149,22 @@ export const neuripsReviewTrack = {
   body: 'The organizing team gives these papers a light review, so you can expect a decision within one or two weeks. Because the workshop is non-archival, presenting here does not affect where you send the paper elsewhere.',
 };
 
-export const submissionDeadline = '2026-08-30T11:59:59Z';
-export const submissionDeadlineLabel = 'August 29, 2026 · midnight AoE';
+export const submissionDeadline = '2026-09-06T11:59:59Z';
+export const submissionDeadlineLabel = 'September 5, 2026 · midnight AoE';
+// Shown struck through next to the current deadline, so the extension is visible.
+export const submissionDeadlineWas = 'August 29, 2026';
+
+export const paperAwards = [
+  ['Best Paper Award', 'Certificate + $500'],
+  ['Best Paper Honorable Mention', 'Certificate + $200'],
+  ['Best Student Paper Award', 'Certificate + $500'],
+  ['Best Competition Paper Award', 'Certificate + $500'],
+];
 
 // `key: true` highlights the row in the dates table.
 export const importantDates = [
   { label: 'Submission opens', value: 'July 22, 2026' },
-  { label: 'Submission deadline (without reviews)', value: 'August 29, 2026', key: true },
+  { label: 'Submission deadline (without reviews)', value: 'September 5, 2026', was: 'August 29, 2026', key: true },
   { label: 'Review period', value: 'August 31 – September 20, 2026' },
   { label: 'Discussion period', value: 'September 21–27, 2026' },
   { label: 'Decision notification', value: 'September 29, 2026', key: true },
