@@ -124,7 +124,7 @@ function News() {
           </li>
           <li>
             <span className="date">Jul 31, 2026</span>
-            <span>We're happy to announce the <a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE competition</a>, sponsored by <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google</a> and <a href="https://www.salesforce.com/" target="_blank" rel="noopener noreferrer">Salesforce</a>, with a $6,000 prize pool and a dedicated Best Competition Paper Award!</span>
+            <span>We're happy to announce the <a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE competition</a>, sponsored by <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Google</a> and <a href="https://www.salesforce.com/" target="_blank" rel="noopener noreferrer">Salesforce</a>, with a $6,000 prize pool and a dedicated Best Competition Paper Award! Competition papers go to the <a href={competitionOpenReviewUrl} target="_blank" rel="noopener noreferrer">Competition Paper Track on OpenReview</a>.</span>
           </li>
           <li>
             <span className="date">Jul 31, 2026</span>
