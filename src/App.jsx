@@ -22,6 +22,7 @@ import {
   paperAwards,
   openReviewUrl,
   programCommittee,
+  reviewerSignupUrl,
   schedule,
   speakerSection,
   submissionDeadline,
@@ -111,9 +112,13 @@ function News() {
         <h2>News</h2>
         <ul className="news-list">
           <li>
+            <span className="date">Aug 29, 2026</span>
+            <span>📣 We are recruiting reviewers. <a href={reviewerSignupUrl} target="_blank" rel="noopener noreferrer">Sign up here</a>.</span>
+          </li>
+          <li>
             <span className="date">Aug 27, 2026</span>
             <span>
-              ⏰ To give authors more time to prepare, we have extended the paper submission deadline to <strong>{submissionDeadlineLabel}</strong>. Submit on <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>.
+              ⏰ Deadline extended: <strong>Sep 5, 2026 (AoE)</strong>. ☺️ More time to polish your work on interpreting agent behavior. We can't wait to read it!
             </span>
           </li>
           <li>
