@@ -30,6 +30,7 @@ import {
   submissionDeadlineWas,
   submissionFormats,
   topics,
+  xUrl,
 } from './data/siteData';
 
 const speakers = getPeopleByRole(PERSON_ROLE.SPEAKER);
@@ -111,6 +112,10 @@ function News() {
       <div className="container">
         <h2>News</h2>
         <ul className="news-list">
+          <li>
+            <span className="date">Sep 2, 2026</span>
+            <span>🐦 We're now on X! Follow <a href={xUrl} target="_blank" rel="noopener noreferrer">@iab_agents</a> for workshop and competition updates.</span>
+          </li>
           <li>
             <span className="date">Aug 29, 2026</span>
             <span>📣 We are recruiting reviewers. <a href={reviewerSignupUrl} target="_blank" rel="noopener noreferrer">Sign up here</a>.</span>

@@ -144,6 +144,8 @@ export const competitionOpenReviewUrl = 'https://openreview.net/group?id=NeurIPS
 
 export const reviewerSignupUrl = 'https://forms.gle/kqM3D5hAfpSe3pnY8';
 
+export const xUrl = 'https://x.com/iab_agents';
+
 export const neuripsReviewTrack = {
   title: 'Submission with NeurIPS reviews',
   intro: 'If your paper was reviewed at NeurIPS 2026, you can submit it here together with the reviews and your response. This is a second route into the workshop.',
