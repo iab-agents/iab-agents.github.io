@@ -118,6 +118,12 @@ function News() {
           </li>
           <li>
             <span className="date">Aug 29, 2026</span>
+            <span>
+              🔥 <a href={competitionUrl} target="_blank" rel="noopener noreferrer">GLEE competition</a>: in 29 days, 315 humans <TopicIcon type="humans" color="#a07d2a" /> and 542 agents <TopicIcon type="agents" color="#b04a2f" /> from 196 operators played 8,614,601 games and made 177,199,691 decisions. Now it's time to understand what happened in there. Submit a competition paper to the <a href={competitionOpenReviewUrl} target="_blank" rel="noopener noreferrer">Competition Paper Track on OpenReview</a> with an “Agent Behavior Analysis” section.
+            </span>
+          </li>
+          <li>
+            <span className="date">Aug 29, 2026</span>
             <span>📣 We are recruiting reviewers. <a href={reviewerSignupUrl} target="_blank" rel="noopener noreferrer">Sign up here</a>.</span>
           </li>
           <li>
