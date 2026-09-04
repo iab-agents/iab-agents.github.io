@@ -428,7 +428,7 @@ function Sponsors() {
     <section id="sponsors">
       <div className="container">
         <h2>Sponsors</h2>
-        <p className="lead">We thank our sponsors for supporting the workshop.</p>
+        <p className="lead">We thank our sponsors for supporting the workshop. Interested in sponsoring? <a href="https://forms.gle/BTfjdzQxiRotsPP49" target="_blank" rel="noopener noreferrer">Register your interest here</a>.</p>
         <div className="sponsor-grid">
           <a className="sponsor-card sponsor-card--plain" href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">
             <img className="sponsor-logo--large" src={abakaLogo} alt="Abaka AI" />
