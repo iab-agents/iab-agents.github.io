@@ -149,7 +149,7 @@ export const xUrl = 'https://x.com/iab_agents';
 export const neuripsReviewTrack = {
   title: 'Submission with NeurIPS reviews',
   intro: 'If your paper was reviewed at NeurIPS 2026, you can submit it here together with the reviews and your response. This is a second route into the workshop.',
-  due: 'Due October 1, 2026, one week after NeurIPS decisions.',
+  due: 'Due September 25, 2026, just after NeurIPS decisions.',
   body: 'The organizing team gives these papers a light review, so you can expect a decision within one or two weeks. Because the workshop is non-archival, presenting here does not affect where you send the paper elsewhere.',
 };
 
@@ -170,10 +170,9 @@ export const importantDates = [
   { label: 'Submission opens', value: 'July 22, 2026' },
   { label: 'Submission deadline (without reviews)', value: 'September 5, 2026', was: 'August 29, 2026', key: true },
   { label: 'Review period', value: 'August 31 – September 20, 2026' },
+  { label: '"Submission with NeurIPS reviews" deadline', value: 'September 25, 2026', key: true },
   { label: 'Discussion period', value: 'September 21–27, 2026' },
   { label: 'Decision notification', value: 'September 29, 2026', key: true },
-  { label: '"Submission with NeurIPS reviews" deadline', value: 'October 1, 2026', key: true },
-  { label: '"Submission with NeurIPS reviews" notification', value: 'TBD', key: true },
   { label: 'Camera-ready deadline', value: 'November 20, 2026', key: true },
   { label: 'Workshop date', value: 'December 11–12, 2026', key: true },
 ];
