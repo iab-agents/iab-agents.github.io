@@ -929,6 +929,47 @@ section .lead {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.faq-list {
+  margin-top: 0.4rem;
+  border-top: 1px solid var(--border);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq-item summary {
+  position: relative;
+  padding: 0.9rem 2rem 0.9rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  top: 0.72rem;
+  right: 0.35rem;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.faq-item[open] summary::after { content: '\2212'; }
+
+.faq-item p {
+  max-width: 100%;
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
 .dates-table {
   width: 100%;
   margin-top: 0.4rem;

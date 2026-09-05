@@ -7,6 +7,7 @@ export const navLinks = [
   ['Schedule', 'schedule'],
   ['Organizers', 'organizers'],
   ['Sponsors', 'sponsors'],
+  ['Q&A', 'faq'],
 ];
 
 export const speakerSection = Object.freeze({

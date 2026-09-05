@@ -478,6 +478,52 @@ function Sponsors() {
   );
 }
 
+function FaqItem({ question, children, open }) {
+  return (
+    <details className="faq-item" open={open}>
+      <summary>{question}</summary>
+      {children}
+    </details>
+  );
+}
+
+function Faq() {
+  return (
+    <section id="faq" className="alt">
+      <div className="container">
+        <h2>Questions and Answers</h2>
+        <p className="lead">Answers to what we are asked most often. If yours is not here, email us at <a href="mailto:iab-workshop@googlegroups.com">iab-workshop@googlegroups.com</a>.</p>
+        <div className="faq-list">
+          <FaqItem question="Can I submit a paper to two workshops?">
+            <p>Yes. Concurrent submission to another NeurIPS workshop is allowed. If the paper is accepted at both, please present it at one and let us know early, so the other slot can go to another author.</p>
+          </FaqItem>
+          <FaqItem question="How long can my paper be?">
+            <p>Long papers run up to 9 pages and short papers up to 4 pages, both excluding references, with an unlimited appendix. Use NeurIPS-style formatting. Declaration of LLM Usage does not count toward the page limit.</p>
+          </FaqItem>
+          <FaqItem question="My paper was reviewed at NeurIPS 2026. Can I still submit it?">
+            <p>Yes. The deadline for this route is September 25, 2026, just after NeurIPS decisions.</p>
+          </FaqItem>
+          <FaqItem question="Is review double-blind?">
+            <p>Yes. Reviewing is double-blind on <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>, so please anonymize your submission. Submission with NeurIPS reviews is not anonymized.</p>
+          </FaqItem>
+          <FaqItem question="Can I submit work that is under review somewhere else?">
+            <p>Yes. Because the workshop is non-archival, submitting here does not block a submission elsewhere. Do check the other venue's own policy on concurrent submissions.</p>
+          </FaqItem>
+          <FaqItem question="Where do competition papers go?">
+            <p>To the separate <a href={competitionOpenReviewUrl} target="_blank" rel="noopener noreferrer">Competition Paper Track on OpenReview</a>, with an “Agent Behavior Analysis” section. Those papers are eligible for the Best Competition Paper Award. See the <a href={competitionCfpUrl} target="_blank" rel="noopener noreferrer">competition call for papers</a> for details.</p>
+          </FaqItem>
+          <FaqItem question="What if I cannot attend the workshop in person?">
+            <p>Our aim is simply to bring the community together to share recent work. If no one can make it you should still try to ask someone you know going in person to put up your poster. So that others may contact you if they are interested in your work. There is no publication fee for the workshop.</p>
+          </FaqItem>
+          <FaqItem question="Can I help review?">
+            <p>Yes, and we would be glad to have you. <a href={reviewerSignupUrl} target="_blank" rel="noopener noreferrer">Sign up here</a>.</p>
+          </FaqItem>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer>
@@ -504,6 +550,7 @@ export default function App() {
         <Schedule />
         <Organizers />
         <Sponsors />
+        <Faq />
       </main>
       <Footer />
     </>
