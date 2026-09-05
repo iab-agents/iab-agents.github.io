@@ -449,6 +449,25 @@ section .lead {
   text-transform: uppercase;
 }
 
+.news-toggle {
+  margin-top: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.news-toggle:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
 .news-list svg {
   width: 1.05em;
   height: 1.05em;

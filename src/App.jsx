@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Children, Fragment, useEffect, useState } from 'react';
 import abakaLogo from '../img/abaka-logo.svg';
 import contraLabsLogo from '../img/contra-labs.png';
 import googleLogo from '../img/google.png';
@@ -106,12 +106,32 @@ function About() {
   );
 }
 
+// The news list gets long, so we show the newest NEWS_VISIBLE items and fold the rest away.
+const NEWS_VISIBLE = 6;
+
+function NewsList({ children }) {
+  const [expanded, setExpanded] = useState(false);
+  const items = Children.toArray(children);
+  const hidden = items.length - NEWS_VISIBLE;
+
+  return (
+    <>
+      <ul className="news-list">{expanded ? items : items.slice(0, NEWS_VISIBLE)}</ul>
+      {hidden > 0 && (
+        <button className="news-toggle" type="button" onClick={() => setExpanded((open) => !open)} aria-expanded={expanded}>
+          {expanded ? 'Show less' : `Show ${hidden} earlier items`}
+        </button>
+      )}
+    </>
+  );
+}
+
 function News() {
   return (
     <section id="news">
       <div className="container">
         <h2>News</h2>
-        <ul className="news-list">
+        <NewsList>
           <li>
             <span className="date">Sep 5, 2026</span>
             <span>⏰ Clarification: the submission deadline is <strong>Sep 5, 2026, 23:59 AoE</strong>, the end of the day. Our earlier “midnight AoE” wording was ambiguous. Sorry for the confusion.</span>
@@ -165,7 +185,7 @@ function News() {
             <span className="date">Jul 12, 2026</span>
             <span>🎉 IAB is accepted as a <a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener noreferrer">NeurIPS 2026</a> workshop in Sydney.</span>
           </li>
-        </ul>
+        </NewsList>
       </div>
     </section>
   );
