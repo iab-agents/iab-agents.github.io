@@ -113,6 +113,10 @@ function News() {
         <h2>News</h2>
         <ul className="news-list">
           <li>
+            <span className="date">Sep 5, 2026</span>
+            <span>⏰ Clarification: the submission deadline is <strong>Sep 5, 2026, 23:59 AoE</strong>, the end of the day. Our earlier “midnight AoE” wording was ambiguous. Sorry for the confusion.</span>
+          </li>
+          <li>
             <span className="date">Sep 4, 2026</span>
             <span>
               ⏰ New “Submission with NeurIPS reviews” deadline: <strong>Sep 25, 2026</strong>. Another chance to present your NeurIPS 2026 paper, whether it was accepted or rejected. The workshop is non-archival, and we will decide acceptance based on the NeurIPS reviews. Submit it with the reviews and your response on <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>.

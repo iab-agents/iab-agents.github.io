@@ -154,7 +154,7 @@ export const neuripsReviewTrack = {
 };
 
 export const submissionDeadline = '2026-09-06T11:59:59Z';
-export const submissionDeadlineLabel = 'September 5, 2026 · midnight AoE';
+export const submissionDeadlineLabel = 'September 5, 2026 · 23:59 AoE';
 // Shown struck through next to the current deadline, so the extension is visible.
 export const submissionDeadlineWas = 'August 29, 2026';
 
