@@ -1,6 +1,5 @@
 // A third element marks the link as hot; the nav renders a flame before the label.
 export const navLinks = [
-  ['About', 'about'],
   ['Call for Papers', 'cfp', true],
   ['Competition', 'competition', true],
   ['Speakers', 'speakers'],

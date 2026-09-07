@@ -133,6 +133,12 @@ function News() {
         <h2>News</h2>
         <NewsList>
           <li>
+            <span className="date">Sep 6, 2026</span>
+            <span>
+              🎉 Our first IAB workshop received <strong>260 direct submissions: 221 from the main track and 39 from the competition track</strong>! Thank you to everyone who shared their work with the IAB community. Now we are recruiting reviewers. <a href={reviewerSignupUrl} target="_blank" rel="noopener noreferrer">Sign up here</a>.
+            </span>
+          </li>
+          <li>
             <span className="date">Sep 5, 2026</span>
             <span>⏰ Clarification: the submission deadline is <strong>Sep 5, 2026, 23:59 AoE</strong>, the end of the day. Our earlier “midnight AoE” wording was ambiguous. Sorry for the confusion.</span>
           </li>
