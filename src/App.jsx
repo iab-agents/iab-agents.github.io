@@ -1,6 +1,7 @@
 import { Children, Fragment, useEffect, useState } from 'react';
 import abakaLogo from '../img/abaka-logo.svg';
 import contraLabsLogo from '../img/contra-labs.png';
+import deepmindLogo from '../img/google-deepmind.png';
 import googleLogo from '../img/google.png';
 import heroImage from '../img/hero.png';
 import salesforceLogo from '../img/Salesforce-Logo.png';
@@ -45,14 +46,15 @@ function Hero() {
         <h1>Interpreting Agent Behavior</h1>
         <div className="subtitle">Human-Centered Interpretation for Understanding Agents, Humans, and Interaction</div>
         <div className="venue-line">
-          <strong>
-            <a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener noreferrer">NeurIPS 2026</a>
-          </strong>
-          <span className="venue-divider" aria-hidden="true">·</span>
-          <span className="venue-location venue-location--full">International Convention Centre, Sydney, Australia</span>
-          <span className="venue-location venue-location--short">ICC Sydney, Australia</span>
-          <span className="venue-divider" aria-hidden="true">·</span>
-          <span className="venue-date">December 11–12, 2026</span>
+          <div className="venue-place">
+            <strong>
+              <a href="https://neurips.cc/Conferences/2026" target="_blank" rel="noopener noreferrer">NeurIPS 2026</a>
+            </strong>
+            <span className="venue-divider" aria-hidden="true">·</span>
+            <span className="venue-location venue-location--full">International Convention Centre, Sydney, Australia</span>
+            <span className="venue-location venue-location--short">ICC Sydney, Australia</span>
+          </div>
+          <span className="venue-date">December 12, 2026, 8:00 a.m. – 5:00 p.m. AEDT</span>
         </div>
         <div className="hero-actions">
           <a className="hero-btn hero-btn--primary" href="#cfp">
@@ -132,6 +134,10 @@ function News() {
       <div className="container">
         <h2>News</h2>
         <NewsList>
+          <li>
+            <span className="date">Sep 22, 2026</span>
+            <span>We're happy to welcome <a href="https://deepmind.google/" target="_blank" rel="noopener noreferrer">Google DeepMind</a> as another sponsor of the workshop, together with <a href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">Abaka AI</a> and <a href="https://contralabs.com/creative-human-data" target="_blank" rel="noopener noreferrer">Contra Labs</a>!</span>
+          </li>
           <li>
             <span className="date">Sep 6, 2026</span>
             <span>
@@ -240,7 +246,7 @@ function Schedule() {
     <section id="schedule">
       <div className="container">
         <h2>Schedule <span className="status-pill">Tentative</span></h2>
-        <p className="lead">Full-day workshop with keynotes, paper presentations, posters, and a panel discussion. The program below is tentative and subject to change.</p>
+        <p className="lead">Full-day workshop with keynotes, paper presentations, posters, and a panel discussion. The program below is tentative and subject to change. All times are in AEDT.</p>
         <div className="schedule-list">
           {schedule.map((item) => (
             <div className={`sch${item.break ? ' brk' : ''}`} key={`${item.time}-${item.title}`}>
@@ -453,34 +459,53 @@ function Organizers() {
   );
 }
 
-function Sponsors() {
+function WorkshopSponsorLogos() {
   return (
-    <section id="sponsors">
+    <>
+      <a className="sponsor-card sponsor-card--plain" href="https://deepmind.google/" target="_blank" rel="noopener noreferrer">
+        <img className="sponsor-logo--wordmark" src={deepmindLogo} alt="Google DeepMind" />
+      </a>
+      <a className="sponsor-card sponsor-card--plain" href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">
+        <img className="sponsor-logo--large" src={abakaLogo} alt="Abaka AI" />
+      </a>
+      <a className="sponsor-card sponsor-card--plain" href="https://contralabs.com/creative-human-data" target="_blank" rel="noopener noreferrer">
+        <img className="sponsor-logo--wordmark" src={contraLabsLogo} alt="Contra Labs" />
+      </a>
+    </>
+  );
+}
+
+function CompetitionSponsorLogos() {
+  return (
+    <>
+      <a className="sponsor-card sponsor-card--plain" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
+        <img className="sponsor-logo--xlarge" src={googleLogo} alt="Google" />
+      </a>
+      <a className="sponsor-card sponsor-card--plain" href="https://www.salesforce.com/" target="_blank" rel="noopener noreferrer">
+        <img className="sponsor-logo--xlarge" src={salesforceLogo} alt="Salesforce" />
+      </a>
+    </>
+  );
+}
+
+function SponsorStrip() {
+  return (
+    <aside id="sponsors" className="sponsor-strip" aria-label="Workshop and competition sponsors">
       <div className="container">
-        <h2>Sponsors</h2>
-        <p className="lead">We thank our sponsors for supporting the workshop. Interested in sponsoring? <a href="https://forms.gle/BTfjdzQxiRotsPP49" target="_blank" rel="noopener noreferrer">Register your interest here</a>.</p>
-        <div className="sponsor-grid">
-          <a className="sponsor-card sponsor-card--plain" href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">
-            <img className="sponsor-logo--large" src={abakaLogo} alt="Abaka AI" />
-          </a>
-          <a className="sponsor-card sponsor-card--plain" href="https://contralabs.com/creative-human-data" target="_blank" rel="noopener noreferrer">
-            <img className="sponsor-logo--wordmark" src={contraLabsLogo} alt="Contra Labs" />
-          </a>
-        </div>
-        <div className="adv adv-plain">
-          <h3>Competition Sponsors</h3>
-          <p className="adv-note">We thank our GLEE competition sponsors.</p>
+        <div className="sponsor-strip-workshop">
+          <p className="sponsor-strip-label">Supported by</p>
           <div className="sponsor-grid">
-            <a className="sponsor-card sponsor-card--plain" href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
-              <img className="sponsor-logo--xlarge" src={googleLogo} alt="Google" />
-            </a>
-            <a className="sponsor-card sponsor-card--plain" href="https://www.salesforce.com/" target="_blank" rel="noopener noreferrer">
-              <img className="sponsor-logo--xlarge" src={salesforceLogo} alt="Salesforce" />
-            </a>
+            <WorkshopSponsorLogos />
+          </div>
+        </div>
+        <div className="sponsor-strip-competition">
+          <p className="sponsor-strip-label">Competition Sponsors</p>
+          <div className="sponsor-grid">
+            <CompetitionSponsorLogos />
           </div>
         </div>
       </div>
-    </section>
+    </aside>
   );
 }
 
@@ -548,6 +573,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <SponsorStrip />
         <News />
         <Scope />
         <CallForPapers />
@@ -555,7 +581,6 @@ export default function App() {
         <Speakers />
         <Schedule />
         <Organizers />
-        <Sponsors />
         <Faq />
       </main>
       <Footer />

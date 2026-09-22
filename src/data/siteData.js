@@ -53,18 +53,18 @@ export const topics = [
 // `emphasis` takes an array when several names share one slot; the renderer
 // comma-separates them.
 export const schedule = [
-  { time: '09:00 – 09:10', title: 'Opening Remarks' },
-  { time: '09:10 – 09:45', title: 'Keynote:', emphasis: 'Armando Solar-Lezama', meta: '(30 min + 5 min Q&A)' },
-  { time: '09:45 – 10:20', title: 'Keynote:', emphasis: 'Diyi Yang', meta: '(30 min + 5 min Q&A)' },
-  { time: '10:20 – 10:50', title: 'Paper Presentations', meta: '(2 × 15 min)' },
-  { time: '10:50 – 12:15', title: 'Poster Session #1 + Coffee Break', break: true },
-  { time: '12:15 – 13:15', title: 'Lunch with organizers, speakers, and panelists (TBD)', break: true },
-  { time: '13:15 – 13:50', title: 'Keynote:', emphasis: 'Been Kim', meta: '(30 min + 5 min Q&A)' },
-  { time: '13:50 – 14:25', title: 'Keynote:', emphasis: 'Marc-Alexandre Côté', meta: '(30 min + 5 min Q&A)' },
-  { time: '14:25 – 15:10', title: 'Paper Presentations', meta: '(3 × 15 min)' },
-  { time: '15:10 – 16:00', title: 'Poster Session #2 + Coffee Break', break: true },
+  { time: '08:00 – 08:10', title: 'Opening Remarks' },
+  { time: '08:10 – 08:45', title: 'Keynote:', emphasis: 'Armando Solar-Lezama', meta: '(30 min + 5 min Q&A)' },
+  { time: '08:45 – 09:20', title: 'Keynote:', emphasis: 'Diyi Yang', meta: '(30 min + 5 min Q&A)' },
+  { time: '09:20 – 09:50', title: 'Paper Presentations', meta: '(2 × 15 min)' },
+  { time: '09:50 – 11:15', title: 'Poster Session #1 + Coffee Break', break: true },
+  { time: '11:15 – 12:15', title: 'Lunch with organizers, speakers, and panelists (TBD)', break: true },
+  { time: '12:15 – 12:50', title: 'Keynote:', emphasis: 'Been Kim', meta: '(30 min + 5 min Q&A)' },
+  { time: '12:50 – 13:25', title: 'Keynote:', emphasis: 'Marc-Alexandre Côté', meta: '(30 min + 5 min Q&A)' },
+  { time: '13:25 – 14:10', title: 'Paper Presentations', meta: '(3 × 15 min)' },
+  { time: '14:10 – 15:00', title: 'Poster Session #2 + Coffee Break', break: true },
   {
-    time: '16:00 – 17:30',
+    time: '15:00 – 16:30',
     title: 'Panel:',
     emphasis: [
       'Armando Solar-Lezama',
@@ -79,7 +79,7 @@ export const schedule = [
     suffix: '·',
     meta: 'TBD',
   },
-  { time: '17:30 – 18:00', title: 'Award Session: Best Paper Award + Closing Remarks' },
+  { time: '16:30 – 17:00', title: 'Award Session: Best Paper Award + Closing Remarks' },
 ];
 
 export const cfpCategories = [
@@ -169,12 +169,12 @@ export const paperAwards = [
 export const importantDates = [
   { label: 'Submission opens', value: 'July 22, 2026' },
   { label: 'Submission deadline (without reviews)', value: 'September 5, 2026', was: 'August 29, 2026', key: true },
-  { label: 'Review period', value: 'August 31 – September 20, 2026' },
+  { label: 'Review period', value: 'September 6–22, 2026' },
   { label: '"Submission with NeurIPS reviews" deadline', value: 'September 25, 2026', key: true },
-  { label: 'Discussion period', value: 'September 21–27, 2026' },
+  { label: 'Discussion period (ACs and Senior ACs only; no author participation)', value: 'September 22–27, 2026' },
   { label: 'Decision notification', value: 'September 29, 2026', key: true },
   { label: 'Camera-ready deadline', value: 'November 20, 2026', key: true },
-  { label: 'Workshop date', value: 'December 11–12, 2026', key: true },
+  { label: 'Workshop date', value: 'December 12, 2026, 8:00 a.m. – 5:00 p.m. AEDT', key: true },
 ];
 
 export const ethicsNote = {
@@ -206,9 +206,6 @@ export const programCommittee = [
   ['Boyang Li', 'Kean University', 'https://www.liboyang.org/'],
   ['Lin Zhang', 'Johns Hopkins University', 'https://zlin0.github.io/'],
   ['Heyuan Huang', 'Johns Hopkins University', 'https://heyuan9.github.io/'],
-  ['Arman Hatami', 'Johns Hopkins University', 'https://armanhtm.github.io/'],
-  ['Yadi Cao', 'University of California, San Diego', 'https://eydcao.github.io/'],
-  ['Alyssa Columbus', 'Johns Hopkins University', 'https://alyssacolumbus.com/'],
   ['Han Jiang', 'Johns Hopkins University'],
   ['Yifan Zhang', 'National University of Singapore', 'https://yvonnefanf.github.io/index.html'],
   ['Huiqi Zou', 'Northeastern University', 'https://annazou1103.github.io/'],

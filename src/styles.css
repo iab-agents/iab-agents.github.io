@@ -264,7 +264,7 @@ section .lead {
 }
 
 .hero .subtitle {
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 auto 0.7rem;
   color: rgba(255, 255, 255, 0.92);
   font-size: clamp(1.05rem, 2vw, 1.3rem);
@@ -275,7 +275,8 @@ section .lead {
 .venue-line {
   display: inline-flex;
   max-width: 100%;
-  flex-wrap: wrap;
+  flex-direction: column;
+  row-gap: 0.2rem;
   align-items: center;
   justify-content: center;
   margin-top: 1.1rem;
@@ -294,24 +295,33 @@ section .lead {
   backdrop-filter: blur(8px);
 }
 
+.venue-place {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem 0.4rem;
+}
+
 .venue-line a {
   color: inherit;
   text-decoration: underline;
 }
 
 .venue-date {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .venue-location--short {
   display: none;
 }
 
-/* Stacked: the competition call sits under the main Call for Papers. */
+/* Place calls to action side by side on desktop and stack them on mobile. */
 .hero-actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-top: 1.5rem;
   gap: 0.7rem;
 }
@@ -1148,6 +1158,60 @@ section .lead {
   height: 34px;
 }
 
+
+.sponsor-strip {
+  padding: 1.4rem 0 1.6rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.sponsor-strip > .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem 2.5rem;
+}
+
+.sponsor-strip-workshop,
+.sponsor-strip-competition {
+  max-width: 100%;
+}
+
+.sponsor-strip-label {
+  margin-bottom: 0.6rem;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sponsor-strip .sponsor-grid {
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+}
+
+.sponsor-strip .sponsor-card {
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.4rem;
+}
+
+.sponsor-strip .sponsor-card img.sponsor-logo--wordmark {
+  height: 28px;
+}
+
+.sponsor-strip .sponsor-card img.sponsor-logo--large {
+  height: 44px;
+}
+
+.sponsor-strip .sponsor-card img.sponsor-logo--xlarge {
+  height: 44px;
+}
+
 footer {
   padding: 2rem 0;
   border-top: 1px solid var(--border);
@@ -1196,6 +1260,7 @@ footer p + p { margin-top: 0.3rem; }
 }
 
 @media (max-width: 768px) {
+  .hero-actions { flex-direction: column; }
   .container { padding: 0 1.4rem; }
   section { padding: 2.8rem 0; }
   .hero { min-height: 560px; }
@@ -1276,7 +1341,7 @@ footer p + p { margin-top: 0.3rem; }
   .venue-divider,
   .venue-location--full { display: none; }
   .venue-location--short { display: inline; }
-  .venue-date { flex-basis: auto; }
+  .venue-place { flex-direction: column; }
   .news-list li { align-items: flex-start; flex-direction: column; gap: 0.2rem; }
   .news-list .date { width: auto; }
   .speakers-grid .person-card { flex-basis: 100%; }
