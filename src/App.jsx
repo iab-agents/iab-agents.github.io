@@ -135,6 +135,10 @@ function News() {
         <h2>News</h2>
         <NewsList>
           <li>
+            <span className="date">Sep 24, 2026</span>
+            <span>We accept submissions with NeurIPS reviews through <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>. The deadline is <strong>Sep 25, 2026 (AoE)</strong>.</span>
+          </li>
+          <li>
             <span className="date">Sep 22, 2026</span>
             <span>We're happy to welcome <a href="https://deepmind.google/" target="_blank" rel="noopener noreferrer">Google DeepMind</a> as another sponsor of the workshop, together with <a href="https://www.abaka.ai/" target="_blank" rel="noopener noreferrer">Abaka AI</a> and <a href="https://contralabs.com/creative-human-data" target="_blank" rel="noopener noreferrer">Contra Labs</a>!</span>
           </li>
