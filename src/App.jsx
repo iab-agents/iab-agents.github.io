@@ -136,6 +136,10 @@ function News() {
         <h2>News</h2>
         <NewsList>
           <li>
+            <span className="date">Oct 3, 2026</span>
+            <span>NeurIPS 2026 tickets are sold out, but one registration spot is reserved for each accepted workshop paper. See <a href="#faq-registration">how to register</a> in our Q&amp;A.</span>
+          </li>
+          <li>
             <span className="date">Sep 24, 2026</span>
             <span>We accept submissions with NeurIPS reviews through <a href={openReviewUrl} target="_blank" rel="noopener noreferrer">OpenReview</a>. The deadline is <strong>Sep 25, 2026 (AoE)</strong>.</span>
           </li>
@@ -499,9 +503,9 @@ function SponsorStrip() {
   );
 }
 
-function FaqItem({ question, children, open }) {
+function FaqItem({ id, question, children, open }) {
   return (
-    <details className="faq-item" open={open}>
+    <details id={id} className="faq-item" open={open}>
       <summary>{question}</summary>
       {children}
     </details>
@@ -533,7 +537,7 @@ function Faq() {
           <FaqItem question="Where do competition papers go?">
             <p>To the separate <a href={competitionOpenReviewUrl} target="_blank" rel="noopener noreferrer">Competition Paper Track on OpenReview</a>, with an “Agent Behavior Analysis” section. Those papers are eligible for the Best Competition Paper Award. See the <a href={competitionCfpUrl} target="_blank" rel="noopener noreferrer">competition call for papers</a> for details.</p>
           </FaqItem>
-          <FaqItem question="NeurIPS tickets are sold out. How do I register for the IAB workshop at NeurIPS?">
+          <FaqItem id="faq-registration" open question="NeurIPS tickets are sold out. How do I register for the IAB workshop at NeurIPS?">
             <p>Regular tickets for NeurIPS 2026 have sold out. However, one registration spot is reserved for each accepted workshop paper. The spot goes to whichever author on the paper registers first. Reserved spots will open once the accepted papers are officially entered into the NeurIPS system. We are working on this now, and it may take several days.</p>
           </FaqItem>
           <FaqItem question="What if I cannot attend the workshop in person?">
