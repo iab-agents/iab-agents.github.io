@@ -547,6 +547,9 @@ function Faq() {
           <FaqItem question="Where do competition papers go?">
             <p>To the separate <a href={competitionOpenReviewUrl} target="_blank" rel="noopener noreferrer">Competition Paper Track on OpenReview</a>, with an “Agent Behavior Analysis” section. Those papers are eligible for the Best Competition Paper Award. See the <a href={competitionCfpUrl} target="_blank" rel="noopener noreferrer">competition call for papers</a> for details.</p>
           </FaqItem>
+          <FaqItem question="NeurIPS tickets are sold out. How do I register for the IAB workshop at NeurIPS?">
+            <p>Regular tickets for NeurIPS 2026 have sold out. However, one registration spot is reserved for each accepted workshop paper. The spot goes to whichever author on the paper registers first. Reserved spots will open once the accepted papers are officially entered into the NeurIPS system. We are working on this now, and it may take several days.</p>
+          </FaqItem>
           <FaqItem question="What if I cannot attend the workshop in person?">
             <p>Our aim is simply to bring the community together to share recent work. If no one can make it you should still try to ask someone you know going in person to put up your poster. So that others may contact you if they are interested in your work. There is no publication fee for the workshop.</p>
           </FaqItem>
