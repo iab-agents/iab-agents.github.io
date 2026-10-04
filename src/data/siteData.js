@@ -9,6 +9,12 @@ export const navLinks = [
   ['Q&A', 'faq'],
 ];
 
+// Separate pages, linked from the nav after the section anchors.
+export const pageLinks = [
+  ['Accepted Papers', '/accepted-papers/'],
+  ['PC & Reviewers', '/committee/'],
+];
+
 export const speakerSection = Object.freeze({
   showProfiles: true,
   message: 'We thank our invited speakers and panelists.',
@@ -210,3 +216,10 @@ export const programCommittee = [
   ['Yifan Zhang', 'National University of Singapore', 'https://yvonnefanf.github.io/index.html'],
   ['Huiqi Zou', 'Northeastern University', 'https://annazou1103.github.io/'],
 ];
+
+// Same [name, affiliation, url] shape as programCommittee.
+export const reviewers = [];
+
+// Shown on the Accepted Papers page. Each entry:
+// { title, authors: 'A, B, C', track: 'Long Paper' | 'Short Paper' | 'Competition Paper', url (OpenReview forum, optional) }
+export const acceptedPapers = [];

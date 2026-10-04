@@ -6,7 +6,9 @@ import googleLogo from '../img/google.png';
 import heroImage from '../img/hero.png';
 import salesforceLogo from '../img/Salesforce-Logo.png';
 import FlameIcon from './components/FlameIcon';
+import Footer from './components/Footer';
 import Navigation from './components/Navigation';
+import PeopleList from './components/PeopleList';
 import PersonCard from './components/PersonCard';
 import TopicIcon from './components/TopicIcon';
 import { getPeopleByRole, PERSON_ROLE } from './data/peopleRepository';
@@ -22,7 +24,6 @@ import {
   neuripsReviewTrack,
   paperAwards,
   openReviewUrl,
-  programCommittee,
   reviewerSignupUrl,
   schedule,
   speakerSection,
@@ -420,21 +421,6 @@ function Competition() {
   );
 }
 
-function PeopleList({ people, linked = false }) {
-  return (
-    <ul className="people-list">
-      {people.map(([name, affiliation, url]) => (
-        <li key={name}>
-          <span className="pl-name">
-            {linked && url ? <a href={url} target="_blank" rel="noopener noreferrer">{name}</a> : name}
-          </span>
-          <span className="pl-affil">{affiliation}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 function Organizers() {
   return (
     <section id="organizers" className="alt">
@@ -454,9 +440,9 @@ function Organizers() {
           {competitionTeam.length ? <PeopleList people={competitionTeam} linked /> : <p>To be announced</p>}
         </div>
         <div className="adv">
-          <h3>Program Committee</h3>
-          <p className="adv-note">We thank our program committee members from the NLP, HCI, and ML systems communities.</p>
-          <PeopleList people={programCommittee} linked />
+          <h3>Program Committee &amp; Reviewers</h3>
+          <p className="adv-note">We thank our program committee members and reviewers from many different communities.</p>
+          <a className="page-link" href="/committee/">See the program committee and reviewers →</a>
         </div>
       </div>
     </section>
@@ -559,17 +545,6 @@ function Faq() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer>
-      <div className="container">
-        <p><strong>IAB</strong> · Interpreting Agent Behavior: Human-Centered Interpretation for Understanding Agents, Humans, and Interaction</p>
-        <p>NeurIPS Workshop, 2026 · Contact: <a href="mailto:iab-workshop@googlegroups.com">iab-workshop@googlegroups.com</a></p>
-      </div>
-    </footer>
   );
 }
 

@@ -150,6 +150,11 @@ section .lead {
   text-decoration: none;
 }
 
+.nav-links a[aria-current='page'] {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .nav-links a.hot {
   display: inline-flex;
   align-items: center;
@@ -1212,6 +1217,62 @@ section .lead {
   height: 44px;
 }
 
+/* Sub pages: a short dark band in place of the hero. */
+.page-header {
+  padding: 3.2rem 0 2.8rem;
+  background: #0d1428;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: #fff;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.page-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+}
+
+.paper-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paper-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+
+.paper-list li:last-child {
+  border-bottom: 0;
+}
+
+.paper-list .paper-title {
+  font-weight: 600;
+}
+
+.paper-list .paper-authors {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.paper-list .paper-track {
+  margin-top: 0.2rem;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 footer {
   padding: 2rem 0;
   border-top: 1px solid var(--border);
@@ -1234,7 +1295,7 @@ footer p + p { margin-top: 0.3rem; }
   .organizers-grid .person-card--organizer:nth-child(6) { grid-column: span 2; }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .nav .container { position: relative; }
   .nav-toggle { display: block; }
   .nav-links {
