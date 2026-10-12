@@ -136,12 +136,12 @@ function News() {
         <h2>News</h2>
         <NewsList>
           <li>
-            <span className="date">Oct 12, 2026</span>
-            <span>🎉 Decisions are out! See the list of <a href="/accepted-papers/">accepted papers</a>. Congratulations to all authors, and a big thank you to our <a href="/committee/">program committee members and reviewers</a>.</span>
-          </li>
-          <li>
             <span className="date">Oct 3, 2026</span>
             <span>NeurIPS 2026 tickets are sold out, but one registration spot is reserved for each accepted workshop paper. See <a href="#faq-registration">how to register</a> in our Q&amp;A.</span>
+          </li>
+          <li>
+            <span className="date">Sep 29, 2026</span>
+            <span>🎉 Decisions are out! See the list of <a href="/accepted-papers/">accepted papers</a>.</span>
           </li>
           <li>
             <span className="date">Sep 24, 2026</span>
