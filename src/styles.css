@@ -1103,6 +1103,29 @@ section .lead {
   font-size: 0.88rem;
 }
 
+.name-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  columns: 4;
+  column-gap: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.name-list li {
+  padding: 0.22rem 0;
+  break-inside: avoid;
+}
+
+@media (max-width: 1000px) {
+  .name-list { columns: 3; }
+}
+
+@media (max-width: 640px) {
+  .name-list { columns: 2; column-gap: 1.25rem; font-size: 0.9rem; }
+}
+
 .muted-note {
   color: var(--text-secondary);
   font-size: 0.95rem;
