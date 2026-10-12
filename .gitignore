@@ -2,3 +2,6 @@ node_modules/
 dist/
 .DS_Store
 *.local
+
+# CSV files, e.g. OpenReview exports with rejected papers, reviews, and author identities
+*.csv
